@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    {% if title %}
+    <title>{{ title }} - ChickenAlert</title>
+    {% else %}
+    <title>ChickenAlert</title>
+    {% endif %}
+</head>
+<body>
+    <div>
+        ChickenAlert:
+            <a href="{{ url_for('index') }}">Главная</a>
+            <a href="{{ url_for('login') }}">Login</a>
+    </div>
+    <hr color='#CD5C5C'>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    {% block content %}{% endblock %}
+</body>
+</html>
