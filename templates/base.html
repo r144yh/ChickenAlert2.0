@@ -4,36 +4,55 @@
     {% if title %}{{ title }} - ChickenAlert{% else %}ChickenAlert{% endif %}
 {% endblock %}
 
+{% block body_attribs %}
+    style="background: linear-gradient(100deg,#5d3368,#b55b53);" class="text-center"
+{% endblock %}
+
 {% block navbar %}
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url_for('index') }}">
-                    {#                        <img alt="ChickenAlert" scr="">#}
-                </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="{{ url_for('index') }}">Explore</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    {% if user %}
-                        <li><a href="{{ url_for('login') }}">Login</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('index') }}">Profile</a></li>
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b55b53; border-radius: 20px; border: 0.125rem solid #b55b53;">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+             <img src="/static/images/icons8-волнистый-попугайчик-48.png" width="30" height="30" class="d-inline-block align-top" alt="icons">
+                Chicken
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="{{ url_for('index') }}">Information2</a>
+                </li>
+            </ul>
+{#            <form class="form-inline my-2 my-lg-0">#}
+{#                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
+{#                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: #ee8560;  border-color:#ced4da;">Search</button>#}
+{#            </form>#}
         </div>
+            <ul class="nav navbar-nav justify-content-end">
+                {% if current_user.is_anonymous %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item disabled">
+                        <a class="nav-link" href="{{ url_for('registration') }}">Registration</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                {% endif %}
+            </ul>
+
     </nav>
 {% endblock %}
 
