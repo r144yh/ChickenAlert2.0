@@ -7,7 +7,7 @@
     <database id="2" parent="1" name="ChickenAlert">
       <ObjectId>16394</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>654</IntrospectionStateNumber>
+      <IntrospectionStateNumber>661</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16395|16397|1
 sequence|table|16406|16410|1
@@ -97,7 +97,7 @@ sequence|table|16510|16512|4
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>655</IntrospectionStateNumber>
+      <IntrospectionStateNumber>662</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="16" parent="2" name="btree">

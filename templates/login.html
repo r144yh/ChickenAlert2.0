@@ -1,28 +1,33 @@
 {% extends "base.html" %}
 
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="/static/styles/login.css">
+{% endblock %}
+
 {% block content %}
-    <div class="d-flex justify-content-center">
-    <form action="" method="post" novalidate class="form-signin">
-     <img class="mb-4" src="/static/images/icons8-волнистый-попугайчик-48.png" alt="" width="48" height="48">
-     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label}}<br>
-            {{ form.username(size=32) }}
-            {% for error in form.username.errors %}
-            <span style="color: #9f5a6c;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
-            {% for error in form.password.errors %}
-            <span style="color: #9f5a6c;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
-    <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+    <form action="" method="post" novalidate class="transparent" style="background-image: url(https://sun9-15.userapi.com/c857228/v857228615/33605/mJg8c8dMbKM.jpg);">
+        <div class="form-inner">
+            <h3>Вход</h3>
+            {{ form.hidden_tag() }}
+            <p><br>
+                {{ form.login.label }}
+                {{ form.login(size=32) }}
+                {% for error in form.login.errors %}
+                    <span style="color: #9f5a6c;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}
+                {{ form.password(size=32) }}
+                {% for error in form.password.errors %}
+                    <span style="color: #9f5a6c;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+{#            <p><br> {{ form.remember_me() }} {{ form.remember_me.label }} </p>#}
+            <p> <br> {{ form.submit() }}</p>
+        </div>
     </form>
-    </div>
 {% endblock %}

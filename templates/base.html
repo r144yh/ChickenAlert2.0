@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block body_attribs %}
-    style="background: linear-gradient(100deg,#5d3368,#b55b53);" class="text-center"
+    style="background-color: #5371B3;"
+background-image:
+linear-gradient(#eeeeee 25%, transparent 25%),
+linear-gradient(90deg, #eeeeee 25%, transparent 25%);
+background-size: 8px 8px;"
 {% endblock %}
 
 {% block navbar %}
@@ -57,3 +61,8 @@
 {% endblock %}
 
 {% block content %}{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang('ru') }}
+{% endblock %}

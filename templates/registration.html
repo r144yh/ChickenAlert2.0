@@ -1,93 +1,27 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-    <h1>Регистрация</h1>
-    <form class="needs-validation" action="" method="post" novalidate>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                <div class="invalid-feedback">
-                    Please provide a valid email.
-                </div>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputPassword4">Пароль</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="validationCustomUsername">Имя пользователя</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="Имя пользователя"
-                           aria-describedby="inputGroupPrepend" required>
-                    <div class="invalid-feedback">
-                        Please choose a username.
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputPassword4">Дата Регистрации</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Дата" disabled>
-            </div>
+ <form action="" method="post" novalidate>
+        <div>
+            <h3>Регистрация</h3>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.login.label }}
+                {{ form.login(size=15) }}
+            </p>
+            <p>
+                {{ form.email.label }}
+                {{ form.email(size=40) }}
+            </p>
+            <p>
+                {{ form.ppassword.label }}
+                {{ form.ppassword(size=25) }}
+            </p>
+            <p>
+                {{ form.reg_date.label }}
+                {{ form.reg_date(size=25) }}
+            </p>
         </div>
-        <div class="form-row">
-            <div class="col-md-2 mb-4">
-                <label for="validationCustom03">Целевой вес</label>
-                <input type="number" min="0" max="400" class="form-control" id="validationCustom03" placeholder="Целевой вес" required>
-                <div class="invalid-feedback">
-                    Please provide a valid number.
-                </div>
-            </div>
-            <div class="col-md-2 mb-4">
-                <label for="validationCustom04">Текущий вес</label>
-                <input type="number" min="0" max="400" class="form-control" id="validationCustom04" placeholder="Текущий вес" required>
-                <div class="invalid-feedback">
-                    Please provide a valid number.
-                </div>
-            </div>
-            <div class="col-md-2 mb-4">
-                <label for="validationCustom05">Калорий в день</label>
-                <input type="number" min="0" max="10000" class="form-control" id="validationCustom05" placeholder="Кол-во" required>
-                <div class="invalid-feedback">
-                    Please provide a valid zip.
-                </div>
-            </div>
-            <div class="col-md-2 mb-4">
-                <label for="validationCustom06">Рост</label>
-                <input type="number" min="0" max="150" class="form-control" id="validationCustom06" placeholder="см" required>
-                <div class="invalid-feedback">
-                    Please provide a valid height.
-                </div>
-            </div>
-            <div class="col-md-2 mb-4">
-                <label for="validationCustom07">Возраст</label>
-                <input type="number" min="0" max="100" class="form-control" id="validationCustom07" placeholder="Возраст" required>
-                <div class="invalid-feedback">
-                    Please provide a valid.
-                </div>
-            </div>
-            <div class="col-md-1 mb-4">
-                <label for="validationCustom08">Пол</label>
-                <input type="text" minlength="1" maxlength="1" class="form-control" id="validationCustom08" placeholder="M/F" required>
-                <div class="invalid-feedback">
-                    Please provide a valid.
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required>
-                <label class="form-check-label" for="invalidCheck3">
-                    Agree to terms and conditions
-                </label>
-                <div class="invalid-feedback">
-                    You must agree before submitting.
-                </div>
-            </div>
-        </div>
-        <button class="btn btn-secondary" type="submit">Submit form</button>
     </form>
 {% endblock %}
