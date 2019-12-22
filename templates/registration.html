@@ -2,7 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
- <form action="" method="post" novalidate>
+    <form action="" method="post" novalidate>
         <div>
             <h3>Регистрация</h3>
             {{ form.hidden_tag() }}
@@ -18,10 +18,35 @@
                 {{ form.ppassword.label }}
                 {{ form.ppassword(size=25) }}
             </p>
+{#            <p>#}
+{#                {{ form.reg_date.label }}#}
+{#                {{ moment(form.reg_date.data).format('LLL') }}#}
+{#            </p>#}
             <p>
-                {{ form.reg_date.label }}
-                {{ form.reg_date(size=25) }}
+                {{ form.target_weight.label }}
+                {{ form.target_weight(size=3) }}
             </p>
+            <p>
+                {{ form.current_weight.label }}
+                {{ form.current_weight(size=3) }}
+            </p>
+            <p>
+                {{ form.calories.label }}
+                {{ form.calories(size=5) }}
+            </p>
+            <p>
+                {{ form.height.label }}
+                {{ form.height(size=3) }}
+            </p>
+            <p>
+                {{ form.age.label }}
+                {{ form.age(size=3) }}
+            </p>
+            <p>
+                {{ form.gender.label }}
+                {{ form.gender(size=1) }}
+            </p>
+            <p> <br> {{ form.submit() }}</p>
         </div>
     </form>
 {% endblock %}

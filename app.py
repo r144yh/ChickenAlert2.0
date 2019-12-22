@@ -9,6 +9,7 @@ import json
 from contextlib import closing
 from models import User
 from flask_moment import Moment
+import datetime
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -72,11 +73,12 @@ def registration():
         return redirect('index')
     form = RegistrationForm()
     if form.validate_on_submit():
+        now = datetime.datetime.now()
         conn = try_connect()
         cursor = conn.cursor()
         nutrition_id = 1
         cursor.execute('INSERT INTO uuser VALUES(DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s )',
-                     (form.login.data, form.email.data, form.ppassword.data, form.reg_date.data, form.target_weight.data,
+                     (form.login.data, form.email.data, form.ppassword.data, now, form.target_weight.data,
                       form.current_weight.data,
                       form.calories.data,
                       form.height.data,
