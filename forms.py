@@ -31,3 +31,5 @@ class RegistrationForm(FlaskForm):
     #     records = cursor.execute('SELECT login FROM uuser WHERE login = %s', (login, ))
     #     if records:
     #         raise ValidationError('Choose another login')
+
+

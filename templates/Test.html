@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{#{% block styles %}#}
+{#    {{ super() }}#}
+{#    <link rel="stylesheet"#}
+{#          href="/static/styles/index.css">#}
+{#{% endblock %}#}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">It's time to learn more about yourself</h1>
+        <p class="lead">Help us make the selection more accurate</p>
+        <hr class="my-4">
+        <p>Just do it</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#que1" role="button">Pass test</a>
+        </p>
+    </div>
+
+    {% for row in len_ans %}
+        <div class="container my-5 py-5 z-depth-1" style="background-color: #F5E2CD">
+            <section class="text-center px-md-5 mx-md-5 dark-grey-text" id="que1">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-7">
+                        <h4>{{ row[0] }}</h4>
+                        {% for ans in row[1] %}
+                            <p><input type="checkbox" value="{{ ans[1] }}"> {{ ans[0] }}</p>
+                        {% endfor %}
+                        <p class="lead">
+                            <a href="#que2" role="button">Выбрать</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    {% endfor %}
+{% endblock %}

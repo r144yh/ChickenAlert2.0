@@ -4,59 +4,111 @@
     {% if title %}{{ title }} - ChickenAlert{% else %}ChickenAlert{% endif %}
 {% endblock %}
 
+
 {% block body_attribs %}
-    style="background-color: #5371B3;"
+    {#    style="background-color: #5371B3;"#}
+    {#    style="background-image:  url('https://images.wallpaperscraft.ru/image/voda_prozrachnyj_poverhnost_149194_3840x2400.jpg'); "#}
+    {#    style="background: linear-gradient(100deg,#5d3368,#b55b53);" class="text-center"#}
+    {#   style="background-image:#}
+    {#linear-gradient(#98B7AF 1px, transparent 1px),#}
+    {#linear-gradient(90deg, #98B7AF 1px, transparent 1px);#}
+    {#background-size: 2em 2em;#}
+    {#background-color: #b55b53; "#}
+    {#    style="background-color: b55b53;#}
+    {#background-image:#}
+    {#linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 75%, #cccccc 75%),#}
+    {#linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 75%, #cccccc 75%);#}
+    {#background-position: 0 0, 8px 8px;#}
+    {#background-size: 16px 16px;"#}
+    style="background-color: #b55b53;
     background-image:
-    linear-gradient(#eeeeee 25%, transparent 25%),
-    linear-gradient(90deg, #eeeeee 25%, transparent 25%);
-    background-size: 8px 8px;"
+    linear-gradient(transparent 99px, white 99px),
+    linear-gradient(90deg, transparent 99px, white 99px),
+    linear-gradient(transparent 19px, rgba(255, 255, 255, 0.3) 19px),
+    linear-gradient(90deg, transparent 19px, rgba(255, 255, 255, 0.3) 19px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;"
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-dark"
-         style="background-color: #b55b53; border-radius: 20px; border: 0.125rem solid #b55b53;">
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" >
+
+        <!-- Navbar brand -->
         <a class="navbar-brand" href="{{ url_for('index') }}">
             <img src="/static/images/icons8-волнистый-попугайчик-48.png" width="30" height="30"
                  class="d-inline-block align-top" alt="icons">
-            Chicken
+            ChickenHome
         </a>
+
+        <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto smooth-scroll">
+                {% if major %}
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#slide">Superiority</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nutrition">Health</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#sport">Sport</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ url_for('index') }}" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nutrition program</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=1) }}">program 1</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=2) }}">program 2</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=3) }}">program 3</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=4) }}">program 4</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=5) }}">program 5</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=6) }}">program 6</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('index') }}">Information</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="{{ url_for('index') }}">Information2</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="{{ url_for('index') }}" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports program</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=1) }}">program 1</a>
+                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=2) }}">program 2</a>
+                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=3) }}">program 3</a>
+                    </div>
                 </li>
             </ul>
         </div>
         <ul class="nav navbar-nav justify-content-end">
             {% if current_user.is_anonymous %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    <a class="nav-link" href="{{ url_for('login') }}">Log in</a>
                 </li>
                 <li class="nav-item disabled">
                     <a class="nav-link" href="{{ url_for('registration') }}">Registration</a>
                 </li>
             {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('index') }}">Profile</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('profile', uuser_id=current_user.id) }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="{{ url_for('logout') }}">Logout</a>
+                    <a class="nav-link" href="{{ url_for('test', test_id=1) }}">Test</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                 </li>
             {% endif %}
         </ul>
+        <!-- Links -->
 
     </nav>
+
 {% endblock %}
 
 {% block content %}{% endblock %}

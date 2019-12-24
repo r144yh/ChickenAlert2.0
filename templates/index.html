@@ -7,167 +7,300 @@
 {% endblock %}
 
 {% block content %}
-    <div class="jumbotron">
-        <h1 class="display-4">It's time to take care of yourself</h1>
-        <p class="lead">Time will always be short</p>
-        <hr class="my-4">
-        <p>Just do it</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">SIGN UP</a>
-        </p>
-    </div>
+    <main>
+        <div class="container" style="margin-top: 100px; margin-bottom: 100px; max-width: 90rem; max-height: 60rem">
+            <div class="jumbotron p-0">
+                <div class="view overlay rounded-top">
+                    <img src="https://images.wallpaperscraft.com/image/hand_swimmer_swimming_pool_water_79970_3840x2160.jpg"
+                         class="img-fluid"
+                         alt="Sample image">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center mb-3">
+                    <h3 class="card-title h3 my-4"><strong>It's time to take care of yourself</strong></h3>
+                    <p class="card-text py-2">Time will always be short</p>
+                    <p style="color: #92c8f5"><b><u>Just do it</u></b></p>
+                    {% if current_user.is_authenticated %}
+                        <a style=" text-decoration: none;
+                                   outline: none;
+                                   display: inline-block;
+                                   color: white;
+                                   padding: 20px 30px;
+                                   margin: 10px 20px;
+                                   border-radius: 10px;
+                                   font-family: 'Montserrat', sans-serif;
+                                   text-transform: uppercase;
+                                   letter-spacing: 2px;
+                                   background-image: linear-gradient(to right, #5d3368 0%, #b55b53 51%, #5d3368 100%);
+                                   background-size: 200% auto;
+                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                   transition: .5s;"
+                           href="{{ url_for('profile', uuser_id=current_user.id) }}" role="button">Profile</a>
+                    {% else %}
+                        <a style=" text-decoration: none;
+                                   outline: none;
+                                   display: inline-block;
+                                   color: white;
+                                   padding: 20px 30px;
+                                   margin: 10px 20px;
+                                   border-radius: 10px;
+                                   font-family: 'Montserrat', sans-serif;
+                                   text-transform: uppercase;
+                                   letter-spacing: 2px;
+                                   background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+                                   background-size: 200% auto;
+                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                   transition: .5s;"
+                           href="{{ url_for('login') }}" role="button">Log in</a>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="..." alt="Первый слайд">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="..." alt="Второй слайд">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="..." alt="Третий слайд">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+            <section id="slide" class="text-center" style="color: #F5E2CD;">
+                <div class="container"
+                     style="margin-top: 100px; margin-bottom: 100px; max-width: 90rem; max-height: 60rem">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100"
+                                     src="https://images.unsplash.com/photo-1521986329282-0436c1f1e212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"
+                                     width="1380" height="920" alt="Первый слайд">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100"
+                                     src="https://images.unsplash.com/photo-1547637205-fde0c9011f9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                                     alt="Второй слайд">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100"
+                                     src="https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+                                     width="1380" height="920" alt="Третий слайд">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-    <div class="post-wrap">
-        <div class="post-item">
-            <div class="item-content">
-                <div class="item-icon group"></div>
-                <div class="item-body">
-                    <h3>Потеря веса за 3 недели</h3>
-                    <ul style="list-style-type: circle;">
-                        <li>Блюда планируются заранее</li>
-                        <li>Рецепты с 5-ю ингредиентами</li>
-                        <li>Списки покупок включены</li>
-                    </ul>
-                </div>
-                <div class="item-footer">
-                    <a href="#" class="link"><span>Подробнее</span></a>
-                </div>
-            </div>
-        </div>
+            <section id="nutrition" class="text-center">
+                <div class="container"
+                     style="margin-top: 100px; margin-bottom: 100px; max-width: 90rem; max-height: 60rem">
+                    <div class="post-wrap">
+                        <div class="post-item">
+                            <div class="item-content">
+                                <div class="item-body">
+                                    <img src="https://img.icons8.com/doodle/48/000000/ok-hand.png">
+                                    <h3>Потеря веса за 3 недели</h3>
+                                    <ul class="row align-items-start" style="list-style-type: circle;">
+                                        <li>Блюда планируются заранее</li>
+                                        <li>Рецепты с 5-ю ингредиентами</li>
+                                        <li>Списки покупок включены</li>
+                                    </ul>
+                                </div>
+                                <div class="item-footer">
+                                    <a href="{{ url_for('nutrition_program', nutrition_id=1) }}"
+                                       class="link"><span>Подробнее</span></a>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="post-item">
-            <div class="item-content">
-                <div class="item-icon tree"></div>
-                <div class="item-body">
-                    <h3>Счетчик калорий</h3>
-                    <ul style="list-style-type: none;">
-                        <li>База данных о продуктах питания</li>
-                        <li>Сканер штрих-кода</li>
-                        <li>Отследивание упражнений</li>
-                    </ul>
-                </div>
-                <div class="item-footer">
-                    <a href="#" class="link"><span>Подробнее</span></a>
-                </div>
-            </div>
-        </div>
+                        <div class="post-item" style="min-width: 21.5rem; max-height: 22rem">
+                            <div class="item-content">
+                                <img src="https://img.icons8.com/doodle/48/000000/easy.png">
+                                <div class="item-body">
+                                    <h3>Счетчик калорий</h3>
+                                    <ul class="row align-items-start" style="list-style-type: circle;">
+                                        <li>База данных о продуктах питания</li>
+                                        <li>Сканер штрих-кода</li>
+                                        <li>Отследивание упражнений</li>
+                                    </ul>
+                                </div>
+                                <div class="item-footer">
+                                    <a href="{{ url_for('nutrition_program', nutrition_id=2) }}"
+                                       class="link"><span>Подробнее</span></a>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="post-item">
-            <div class="item-content">
-                <div class="item-icon anchor"></div>
-                <div class="item-body">
-                    <h3>Круизы</h3>
-                    <ul style="list-style-type: none;">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="item-footer">
-                    <a href="#" class="link"><span>Подробнее</span></a>
-                </div>
-            </div>
-        </div>
+                        <div class="post-item">
+                            <div class="item-content">
+                                <img src="https://img.icons8.com/doodle/48/000000/call-me.png">
+                                <div class="item-body">
+                                    <h3>Круизы</h3>
+                                    <ul class="row align-items-start" style="list-style-type: circle;">
+                                        <li>База данных о продуктах питания</li>
+                                        <li>Сканер штрих-кода</li>
+                                        <li>Отследивание упражнений</li>
+                                    </ul>
+                                </div>
+                                <div class="item-footer">
+                                    <a href="{{ url_for('nutrition_program', nutrition_id=3) }}"
+                                       class="link"><span>Подробнее</span></a>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="post-item">
-            <div class="item-content">
-                <div class="item-icon video"></div>
-                <div class="item-body">
-                    <h3>Видеосъемка</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat a quam non blandit.</p>
-                </div>
-                <div class="item-footer">
-                    <a href="#" class="link"><span>Подробнее</span></a>
-                </div>
-            </div>
-        </div>
+                        <div class="post-item">
+                            <div class="item-content">
+                                <img src="https://img.icons8.com/doodle/48/000000/volunteering--v1.png">
+                                <div class="item-body">
+                                    <h3>Видеосъемка</h3>
+                                    <ul class="row align-items-start" style="list-style-type: circle;">
+                                        <li>База данных о продуктах питания</li>
+                                        <li>Сканер штрих-кода</li>
+                                        <li>Отследивание упражнений</li>
+                                    </ul>
+                                </div>
+                                <div class="item-footer">
+                                    <a href="{{ url_for('nutrition_program', nutrition_id=4) }}"
+                                       class="link"><span>Подробнее</span></a>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="post-item">
-            <div class="item-content">
-                <div class="item-icon photo"></div>
-                <div class="item-body">
-                    <h3>Фотография</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat a quam non blandit.</p>
-                </div>
-                <div class="item-footer">
-                    <a href="#" class="link"><span>Подробнее</span></a>
-                </div>
-            </div>
-        </div>
+                        <div class="post-item">
+                            <div class="item-content">
+                                <img src="https://img.icons8.com/doodle/48/000000/handshake--v1.png">
+                                <div class="item-body">
+                                    <h3>Фотография</h3>
+                                    <ul class="row align-items-start" style="list-style-type: circle;">
+                                        <li>База данных о продуктах питания</li>
+                                        <li>Сканер штрих-кода</li>
+                                        <li>Отследивание упражнений</li>
+                                    </ul>
+                                </div>
+                                <div class="item-footer">
+                                    <a href="{{ url_for('nutrition_program', nutrition_id=5) }}"
+                                       class="link"><span>Подробнее</span></a>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="post-item">
-            <div class="item-content">
-                <div class="item-icon gift"></div>
-                <div class="item-body">
-                    <h3>Подарки</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat a quam non blandit.</p>
+                        <div class="post-item">
+                            <div class="item-content">
+                                <img src="https://img.icons8.com/doodle/48/000000/facebook-like.png">
+                                <div class="item-body">
+                                    <h3>Подарки</h3>
+                                    <ul class="row align-items-start" style="list-style-type: circle;">
+                                        <li>База данных о продуктах питания</li>
+                                        <li>Сканер штрих-кода</li>
+                                        <li>Отследивание упражнений</li>
+                                    </ul>
+                                </div>
+                                <div class="item-footer">
+                                    <a href="{{ url_for('nutrition_program', nutrition_id=6) }}"
+                                       class="link"><span>Подробнее</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="item-footer">
-                    <a href="#" class="link"><span>Подробнее</span></a>
+            </section>
+
+            <section id="sport" class="text-center">
+                <div class="card-group" style="margin-top: 100px; margin-bottom: 100px;">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                             class="card-img-top" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Название карточки</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional
+                                content. This content is a little bit longer.</p>
+                            <p class="card-text">
+                                <a style=" text-decoration: none;
+                                   outline: none;
+                                   display: inline-block;
+                                   color: white;
+                                   padding: 20px 30px;
+                                   margin: 10px 20px;
+                                   border-radius: 10px;
+                                   font-family: 'Montserrat', sans-serif;
+                                   text-transform: uppercase;
+                                   letter-spacing: 2px;
+                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
+                                   background-size: 200% auto;
+                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                   transition: .5s;"
+                                   href="{{ url_for('sport_program', sport_id=1) }}" role="button">Program 1</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top"
+                             src="https://images.unsplash.com/photo-1569597773147-690dfdc3bb4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Название карточки</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                                content.</p>
+                            <p class="card-text">
+                                <a style=" text-decoration: none;
+                                   outline: none;
+                                   display: inline-block;
+                                   color: white;
+                                   padding: 20px 30px;
+                                   margin: 10px 20px;
+                                   border-radius: 10px;
+                                   font-family: 'Montserrat', sans-serif;
+                                   text-transform: uppercase;
+                                   letter-spacing: 2px;
+                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
+                                   background-size: 200% auto;
+                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                   transition: .5s;"
+                                   href="{{ url_for('sport_program', sport_id=2) }}" role="button">Program 2</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top"
+                             src="https://images.unsplash.com/photo-1549896869-ca27eeffe4fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Название карточки</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional
+                                content. .</p>
+                            <p class="card-text">
+                                <a style=" text-decoration: none;
+                                   outline: none;
+                                   display: inline-block;
+                                   color: white;
+                                   padding: 20px 30px;
+                                   margin: 10px 20px;
+                                   border-radius: 10px;
+                                   font-family: 'Montserrat', sans-serif;
+                                   text-transform: uppercase;
+                                   letter-spacing: 2px;
+                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
+                                   background-size: 200% auto;
+                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                   transition: .5s;"
+                                   href="{{ url_for('sport_program', sport_id=3) }}" role="button">Program 3</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </div>
-
-    <div class="card-group">
-        <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Название карточки</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Название карточки</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Название карточки</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-      </div>
-    </footer>
+    </main>
 {% endblock %}
+
