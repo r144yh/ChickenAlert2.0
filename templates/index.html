@@ -8,12 +8,15 @@
 
 {% block content %}
     <main>
-        <div class="container" style="margin-top: 100px; margin-bottom: 100px; max-width: 90rem; max-height: 60rem">
+        <div class="container" style="margin-top: 100px; margin-bottom: 100px; max-width: 90rem; max-height: 60rem;">
             <div class="jumbotron p-0">
                 <div class="view overlay rounded-top">
-                    <img src="https://images.wallpaperscraft.com/image/hand_swimmer_swimming_pool_water_79970_3840x2160.jpg"
-                         class="img-fluid"
-                         alt="Sample image">
+                    {#                    <img src="https://images.wallpaperscraft.com/image/hand_swimmer_swimming_pool_water_79970_3840x2160.jpg"#}
+                    {#                         class="img-fluid"#}
+                    {#                         alt="Sample image">#}
+                    <video autoplay muted loop id="myVideo">
+                        <source src="rain.mp4" type="video/mp4">
+                    </video>
                     <a href="#">
                         <div class="mask rgba-white-slight"></div>
                     </a>

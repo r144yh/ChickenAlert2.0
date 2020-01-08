@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bc099a8-7678-4ba9-aad2-adb7779c6196" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/Test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/nutrition_program.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/sport_program.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/styles/test.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nutrition_program.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nutrition_program.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,6 +92,7 @@
       <list>
         <option value="HTML File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -211,7 +212,11 @@
       <workItem from="1576931472667" duration="9818000" />
       <workItem from="1576964011734" duration="2790000" />
       <workItem from="1577024132626" duration="8484000" />
-      <workItem from="1577110104786" duration="41876000" />
+      <workItem from="1577110104786" duration="43800000" />
+      <workItem from="1577317645433" duration="1002000" />
+      <workItem from="1577484225812" duration="654000" />
+      <workItem from="1578175820229" duration="68000" />
+      <workItem from="1578498153139" duration="22925000" />
     </task>
     <servers />
   </component>
@@ -232,6 +237,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ChikenAlert2_0$ChikenAlert2_0.coverage" NAME="ChikenAlert2.0 Coverage Results" MODIFIED="1577160553474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ChikenAlert2_0$ChikenAlert2_0.coverage" NAME="ChikenAlert2.0 Coverage Results" MODIFIED="1578525515294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -141,12 +141,11 @@ def sport_program(sport_id):
     return render_template('sport_program.html', title='Sport Program', records=records)
 
 
-@app.route('/test/<test_id>')
+@app.route('/test/<test_id>', methods=["GET", "POST"])
 def test(test_id):
     conn = try_connect()
     cursor = conn.cursor()
     list1 = []
-
     # cursor.execute('SELECT count(distinct que_id) FROM question WHERE test_id = %s', (test_id, ))
     cursor.execute('SELECT que_id, que_text FROM question WHERE test_id = %s', (test_id,))
     kek = cursor.fetchall()
@@ -158,7 +157,7 @@ def test(test_id):
         list = []
         for ans in records:
             list.append(ans)
-        list1.append([row[1], list])
+        list1.append([row[1], list, row[0]])
 
     # cursor.execute('SELECT * FROM test NATURAL JOIN question NATURAL JOIN answer WHERE test_id = %s', (test_id,))
     # test = cursor.fetchall()
