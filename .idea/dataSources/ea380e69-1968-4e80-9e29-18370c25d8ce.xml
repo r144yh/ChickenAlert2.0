@@ -7,7 +7,7 @@
     <database id="2" parent="1" name="ChickenAlert">
       <ObjectId>16394</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>693</IntrospectionStateNumber>
+      <IntrospectionStateNumber>732</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16395|16397|1
 sequence|table|16406|16410|1
@@ -97,7 +97,7 @@ sequence|table|16510|16512|4
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>694</IntrospectionStateNumber>
+      <IntrospectionStateNumber>733</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="16" parent="2" name="btree">
@@ -286,7 +286,7 @@ sequence|table|16510|16512|4
     <table id="40" parent="15" name="question">
       <ObjectId>16496</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>573</StateNumber>
+      <StateNumber>709</StateNumber>
     </table>
     <table id="41" parent="15" name="sportprogram">
       <ObjectId>16410</ObjectId>
@@ -473,10 +473,10 @@ sequence|table|16510|16512|4
     </column>
     <column id="67" parent="40" name="que_text">
       <Position>2</Position>
-      <DataType>char(70)|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>622</StateNumber>
-      <TypeId>1042</TypeId>
+      <StateNumber>709</StateNumber>
+      <TypeId>25</TypeId>
     </column>
     <column id="68" parent="40" name="test_id">
       <Position>3</Position>
@@ -487,14 +487,14 @@ sequence|table|16510|16512|4
     </column>
     <index id="69" parent="40" name="question_pkey">
       <ObjectId>16501</ObjectId>
-      <StateNumber>573</StateNumber>
+      <StateNumber>709</StateNumber>
       <ColNames>que_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <index id="70" parent="40" name="question_que_text_uindex">
-      <ObjectId>16528</ObjectId>
-      <StateNumber>624</StateNumber>
+      <ObjectId>16543</ObjectId>
+      <StateNumber>709</StateNumber>
       <ColNames>que_text</ColNames>
       <Unique>1</Unique>
     </index>

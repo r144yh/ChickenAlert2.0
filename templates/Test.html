@@ -9,28 +9,51 @@
 {% block content %}
     <br> <br> <br>
     <div class="jumbotron card card-image"
-    <video autoplay muted loop id="myVideo">
-        <source src="https://www.youtube.com/watch?v=ZWls3Zt9C2M" type="video/mp4">
-    </video>
-    <div class="text-white text-center py-5 px-4">
-        <div>
-            <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>It's time to learn more about
-                yourself</strong></h2>
-            <p class="mx-5 mb-5">Help us make the selection more accurate</p>
-            <a class="btn btn-outline-white btn-md" href="#que1" role="button"><i class="fas fa-clone left"></i>Pass
-                test</a>
+         style="background-image: linear-gradient(to right, #e5b1a0 0%, #ccfffd 61%, #e5b1a0 100%);">
+        <div class=" view overlay rounded-top">
+            <h1 class="card-title h1-responsive pt-3 mb-5 font-bold" align="center"><strong>It's time to learn more
+                about
+                yourself</strong></h1>
+            <img src="/static/images/skier_mountains_snow_121238_3840x2160.jpg"
+                 class="img-fluid"
+                 alt="Sample image">
+            <a href="#">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+        <div class="text-white text-center py-5 px-4">
+            <div>
+                <h1 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Help us make the selection more
+                    accurate</strong></h1>
+                <h3 class="mx-5 mb-5">Just eat it</h3>
+                <a style=" text-decoration: none;
+                                   outline: none;
+                                   display: inline-block;
+                                   color: white;
+                                   padding: 20px 30px;
+                                   margin: 10px 20px;
+                                   border-radius: 10px;
+                                   font-family: 'Montserrat', sans-serif;
+                                   text-transform: uppercase;
+                                   letter-spacing: 2px;
+                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
+                                   background-size: 200% auto;
+                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                   transition: .5s;"
+                   href="#que1" role="button">Pass Test</a>
+            </div>
         </div>
     </div>
-    </div>
-    <div class="jumbotron card card-image"
+    <br> <br> <br> <br> <br> <br>
+    <div class="jumbotron card card-image" id="que1"
          style="background-image: linear-gradient(to right, #e5b1a0 0%, #5d3368 61%, #e5b1a0 100%);">
         <div class="text-white text-center py-5 px-4">
             <div>
-                <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>It's time to learn more about
-                    yourself</strong></h2>
-                <p class="mx-5 mb-5">Help us make the selection more accurate</p>
-                <a class="btn btn-outline-white btn-md" href="#que1" role="button"><i class="fas fa-clone left"></i>Pass
-                    test</a>
+                <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>This is a small step to a big
+                    victory</strong></h2>
+                <p class="mx-5 mb-5">[[ Passing the test is only a recommendation and does not force you to follow the
+                    result ]]</p>
+
             </div>
         </div>
     </div>
@@ -70,22 +93,22 @@
 
                 switch (sum) {
                     case 10:
-                        document.location.href = "{{ url_for('nutrition_program', nutrition_id=10) }}";
+                        document.location.href = "{{ url_for('set_prog', nutrition_id=10) }}";
                         break;
                     case 20:
-                        document.location.href = "{{ url_for('nutrition_program', nutrition_id=20) }}";
+                        document.location.href = "{{ url_for('set_prog', nutrition_id=20) }}";
                         break;
                     case 30:
-                        document.location.href = "{{ url_for('nutrition_program', nutrition_id=30) }}";
+                        document.location.href = "{{ url_for('set_prog', nutrition_id=30) }}";
                         break;
                     case 40:
-                        document.location.href = "{{ url_for('nutrition_program', nutrition_id=40) }}";
+                        document.location.href = "{{ url_for('set_prog', nutrition_id=40) }}";
                         break;
                     case 50:
-                        document.location.href = "{{ url_for('nutrition_program', nutrition_id=50) }}";
+                        document.location.href = "{{ url_for('set_prog', nutrition_id=50) }}";
                         break;
                     case 60:
-                        document.location.href = "{{ url_for('nutrition_program', nutrition_id=60) }}";
+                        document.location.href = "{{ url_for('set_prog', nutrition_id=60) }}";
                         break;
                 }
             } else {
@@ -101,8 +124,8 @@
         {#    document.getElementById("overlay").style.display = "none";}#}
     </script>
     {% for row in len_ans %}
-        <div class="container my-5 py-5 z-depth-1" style="background-color: #F5E2CD">
-            <section class="text-center px-md-5 mx-md-5 dark-grey-text" id="que1">
+        <div class="container my-5 py-5 z-depth-1" style="background-color: #F5E2CD; border-radius: 30px;">
+            <section class="text-center px-md-5 mx-md-5 dark-grey-text">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-7">
                         <h4>{{ row[0] }}</h4>
@@ -115,9 +138,24 @@
             </section>
         </div>
     {% endfor %}
-    <button type="button" onclick="fun2();">
-        Отправить
-    </button>
+    <div style="padding:20px" align="center">
+        <button type="button" onclick="fun2();" style=" text-decoration: none;
+                                   outline: none;
+                                   display: inline-block;
+                                   color: white;
+                                   padding: 20px 30px;
+                                   margin: 10px 20px;
+                                   border-radius: 10px;
+                                   font-family: 'Montserrat', sans-serif;
+                                   text-transform: uppercase;
+                                   letter-spacing: 2px;
+                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
+                                   background-size: 200% auto;
+                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                   transition: .5s;">
+            Отправить
+        </button>
+    </div>
     {#    <div id="overlay" onclick="off()">#}
     {#        <div id="text">#}
     {#            <p align="center">Рекомендованная программа:</p>#}

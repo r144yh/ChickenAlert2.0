@@ -13,12 +13,12 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="/static/images/burger.png"
+                        <img src="/static/images/{{rand_num}}.png"
                              alt=""/>
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file"/>
-                        </div>
+{#                        <div class="file btn btn-lg btn-primary">#}
+{#                            Change Photo#}
+{#                            <input type="file" name="file"/>#}
+{#                        </div>#}
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -27,7 +27,7 @@
                             {{ records[1] }}
                         </h5>
                         <h6>Стремящийся к изменениям</h6>
-                        <p class="proile-rating">Test program : <span>Название программы</span></p>
+                        <p class="proile-rating">Test program : <span>{{ records[10] }}</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                    <a href="{{ url_for('edit_profile') }}"><input type="button" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/></a>
                 </div>
             </div>
             <div class="row">
@@ -54,7 +54,7 @@
                         <a href="{{ url_for('sport_program', sport_id=4) }}">Morning exercise</a><br/>
                         <a href="{{ url_for('sport_program', sport_id=5) }}">5 minutes for yourself</a><br/>
                         <a href="{{ url_for('sport_program', sport_id=7) }}">Basic set of products</a><br/>
-                        <a href="{{ url_for('nutrition_program', nutrition_id=2) }}">Basic nutrition program</a><br/>
+                        <a href="{{ url_for('nutrition_program', nutrition_id=20) }}">Basic nutrition program</a><br/>
                         <a href="{{ url_for('sport_program', sport_id=2) }}">Basic sports program</a><br/>
                     </div>
                 </div>

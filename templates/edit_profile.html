@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="/static/styles/profile.css">
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br><br>
+    <div class="col align-self-center">
+        <div class="container emp-profile"
+             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
+            <div align="center">
+                <div class="profile-head">
+                    <h1>Edit profile</h1>
+                </div>
+            </div>
+            <div class="col align-items-center">
+                <div class="row-md-4">
+                    {{ wtf.quick_form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

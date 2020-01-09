@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask import render_template, flash, redirect, url_for, session
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from config import Config, try_connect
-from forms import LoginForm, RegistrationForm
+from forms import LoginForm, RegistrationForm, EditProfileForm
 from flask_bootstrap import Bootstrap
 import psycopg2
 import json
@@ -10,6 +10,7 @@ from contextlib import closing
 from models import User
 from flask_moment import Moment
 import datetime
+import numpy as np
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -74,13 +75,13 @@ def registration():
         cursor = conn.cursor()
         nutrition_id = 1
         cursor.execute('INSERT INTO uuser VALUES(DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s )',
-                     (form.login.data, form.email.data, form.ppassword.data, now, form.target_weight.data,
-                      form.current_weight.data,
-                      form.calories.data,
-                      form.height.data,
-                      form.age.data,
-                      form.gender.data,
-                      nutrition_id))
+                       (form.login.data, form.email.data, form.ppassword.data, now, form.target_weight.data,
+                        form.current_weight.data,
+                        form.calories.data,
+                        form.height.data,
+                        form.age.data,
+                        form.gender.data,
+                        nutrition_id))
         conn.commit()
         cursor.close()
         conn.close()
@@ -97,20 +98,54 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/profile/<uuser_id>')
+@app.route('/profile/<uuser_id>', methods=['GET', 'POST'])
 @login_required
 def profile(uuser_id):
+    rand_num = np.random.randint(1, 9)
     conn = try_connect()
     cursor = conn.cursor()
     cursor.execute('SELECT uuser_id, login, email, reg_date, target_weight, current_weight, calories, '
-                   'height, age, gender '
-                   'FROM uuser '
+                   'height, age, gender, np_name '
+                   'FROM uuser NATURAL JOIN nutritionprogram '
                    'WHERE uuser_id = %s',
-                   (uuser_id, ))
+                   (uuser_id,))
     records = cursor.fetchone()
     cursor.close()
     conn.close()
-    return render_template('profile.html', title='Profile', records=records)
+    return render_template('profile.html', title='Profile', records=records, rand_num=rand_num)
+
+
+@app.route('/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        conn = try_connect()
+        cursor = conn.cursor()
+        cursor.execute(
+            'UPDATE uuser SET target_weight = %s, current_weight = %s, calories = %s, height = %s, age = %s WHERE '
+            'uuser_id = %s',
+            (form.target_weight.data, form.current_weight.data, form.calories.data, form.height.data, form.age.data,
+             current_user.id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        flash('Your changes have been saved.')
+        return redirect(url_for('profile', uuser_id=current_user.id))
+    elif request.method == 'GET':
+        conn = try_connect()
+        cursor = conn.cursor()
+        cursor.execute('SELECT target_weight, current_weight, calories, height, age '
+                       'FROM uuser  '
+                       'WHERE uuser_id = %s',
+                       (current_user.id,))
+        records = cursor.fetchone()
+        form.target_weight.data = records[0]
+        form.current_weight.data = records[1]
+        form.calories.data = records[2]
+        form.height.data = records[3]
+        form.age.data = records[4]
+    return render_template('edit_profile.html', title='Edit Profile', form=form)
 
 
 @app.route('/nutrition_program/<nutrition_id>')
@@ -120,11 +155,23 @@ def nutrition_program(nutrition_id):
     cursor.execute('SELECT * '
                    'FROM nutritionprogram NATURAL JOIN sportprogram '
                    'WHERE nutrition_id = %s',
-                   (nutrition_id, ))
+                   (nutrition_id,))
     records = cursor.fetchone()
     cursor.close()
     conn.close()
     return render_template('nutrition_program.html', title='Nutrition Program', records=records)
+
+
+@app.route('/set_prog/<nutrition_id>')
+@login_required
+def set_prog(nutrition_id):
+    conn = try_connect()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE uuser SET nutrition_id = %s WHERE uuser_id = %s', (nutrition_id, current_user.id))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return redirect(url_for('nutrition_program', nutrition_id=nutrition_id))
 
 
 @app.route('/sport_program/<sport_id>')
