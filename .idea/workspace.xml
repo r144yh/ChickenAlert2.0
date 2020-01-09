@@ -5,21 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce/storage_v2/_src_/database/ChickenAlert.xwhsEg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce/storage_v2/_src_/database/ChickenAlert.xwhsEg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/baguette.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/burger.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/cheese.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/french-fries.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/grapes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/hot-dog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/icons8-dog-bowl-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/pizza.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/rain.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/shrimp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nutrition_program.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nutrition_program.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sport_program.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sport_program.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +202,7 @@
       <workItem from="1577317645433" duration="1002000" />
       <workItem from="1577484225812" duration="654000" />
       <workItem from="1578175820229" duration="68000" />
-      <workItem from="1578498153139" duration="46497000" />
+      <workItem from="1578498153139" duration="50851000" />
     </task>
     <servers />
   </component>
@@ -234,6 +223,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ChikenAlert2_0$ChikenAlert2_0.coverage" NAME="ChikenAlert2.0 Coverage Results" MODIFIED="1578552156481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ChikenAlert2_0$ChikenAlert2_0.coverage" NAME="ChikenAlert2.0 Coverage Results" MODIFIED="1578557031542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

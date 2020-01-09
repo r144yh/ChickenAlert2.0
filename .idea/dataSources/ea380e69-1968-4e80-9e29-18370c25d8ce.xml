@@ -7,7 +7,7 @@
     <database id="2" parent="1" name="ChickenAlert">
       <ObjectId>16394</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>732</IntrospectionStateNumber>
+      <IntrospectionStateNumber>765</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16395|16397|1
 sequence|table|16406|16410|1
@@ -97,7 +97,7 @@ sequence|table|16510|16512|4
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>733</IntrospectionStateNumber>
+      <IntrospectionStateNumber>766</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="16" parent="2" name="btree">
@@ -281,7 +281,7 @@ sequence|table|16510|16512|4
     <table id="39" parent="15" name="placetrena">
       <ObjectId>16397</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>573</StateNumber>
+      <StateNumber>754</StateNumber>
     </table>
     <table id="40" parent="15" name="question">
       <ObjectId>16496</ObjectId>
@@ -291,7 +291,7 @@ sequence|table|16510|16512|4
     <table id="41" parent="15" name="sportprogram">
       <ObjectId>16410</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>573</StateNumber>
+      <StateNumber>758</StateNumber>
     </table>
     <table id="42" parent="15" name="test">
       <ObjectId>16462</ObjectId>
@@ -437,10 +437,10 @@ sequence|table|16510|16512|4
     </column>
     <column id="62" parent="39" name="place_type">
       <Position>2</Position>
-      <DataType>char(40)|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>627</StateNumber>
-      <TypeId>1042</TypeId>
+      <StateNumber>754</StateNumber>
+      <TypeId>25</TypeId>
     </column>
     <column id="63" parent="39" name="pl_description">
       <Position>3</Position>
@@ -451,7 +451,7 @@ sequence|table|16510|16512|4
     </column>
     <index id="64" parent="39" name="placetrena_pkey">
       <ObjectId>16404</ObjectId>
-      <StateNumber>573</StateNumber>
+      <StateNumber>754</StateNumber>
       <ColNames>place_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -525,10 +525,10 @@ sequence|table|16510|16512|4
     </column>
     <column id="74" parent="41" name="sp_name">
       <Position>2</Position>
-      <DataType>char(40)|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>615</StateNumber>
-      <TypeId>1042</TypeId>
+      <StateNumber>758</StateNumber>
+      <TypeId>25</TypeId>
     </column>
     <column id="75" parent="41" name="sp_description">
       <Position>3</Position>
@@ -546,20 +546,20 @@ sequence|table|16510|16512|4
     </column>
     <index id="77" parent="41" name="sportprogram_pkey">
       <ObjectId>16418</ObjectId>
-      <StateNumber>573</StateNumber>
+      <StateNumber>758</StateNumber>
       <ColNames>sport_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <index id="78" parent="41" name="sportprogram_sp_name_uindex">
-      <ObjectId>16527</ObjectId>
-      <StateNumber>619</StateNumber>
+      <ObjectId>16562</ObjectId>
+      <StateNumber>758</StateNumber>
       <ColNames>sp_name</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="79" parent="41" name="sportprogram_sp_description_uindex">
       <ObjectId>16526</ObjectId>
-      <StateNumber>618</StateNumber>
+      <StateNumber>758</StateNumber>
       <ColNames>sp_description</ColNames>
       <Unique>1</Unique>
     </index>
