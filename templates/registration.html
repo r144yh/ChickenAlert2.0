@@ -1,52 +1,94 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="/static/styles/reg.css">
+{% endblock %}
 
 {% block content %}
-    <form action="" method="post" novalidate><br><br><br>
-        <div>
-            <h3>Регистрация</h3>
-            {{ form.hidden_tag() }}
-            <p>
-                {{ form.login.label }}
-                {{ form.login(size=15) }}
-            </p>
-            <p>
-                {{ form.email.label }}
-                {{ form.email(size=40) }}
-            </p>
-            <p>
-                {{ form.ppassword.label }}
-                {{ form.ppassword(size=25) }}
-            </p>
-{#            <p>#}
-{#                {{ form.reg_date.label }}#}
-{#                {{ moment(form.reg_date.data).format('LLL') }}#}
-{#            </p>#}
-            <p>
-                {{ form.target_weight.label }}
-                {{ form.target_weight(size=3) }}
-            </p>
-            <p>
-                {{ form.current_weight.label }}
-                {{ form.current_weight(size=3) }}
-            </p>
-            <p>
-                {{ form.calories.label }}
-                {{ form.calories(size=5) }}
-            </p>
-            <p>
-                {{ form.height.label }}
-                {{ form.height(size=3) }}
-            </p>
-            <p>
-                {{ form.age.label }}
-                {{ form.age(size=3) }}
-            </p>
-            <p>
-                {{ form.gender.label }}
-                {{ form.gender(size=1) }}
-            </p>
-            <p> <br> {{ form.submit() }}</p>
+    <br> <br> <br> <br> <br> <br> <br> <br>
+    <form action="" method="post" novalidate>
+        <div class="container register"
+             style="background-image: linear-gradient(to right, #e5b1a0 0%, #5d3368 31%, #e5b1a0 100%);">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                    <h3>Welcome</h3>
+                    <p>You are 30 seconds away from getting the perfect body!</p>
+                    <a href="{{ url_for('login') }}"><input type="submit" name="" value="Login"/><br/></a><br/>
+                </div>
+                <div class="col-md-9 register-right">
+                    <div class="tab-content" id="myTabContent">
+                        {{ form.hidden_tag() }}
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Registration</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ form.login(maxlength=15, type="text", class="form-control", placeholder="Login") }}
+                                        {% for error in form.login.errors %}
+                                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.ppassword(type="password", class="form-control", placeholder="Password") }}
+                                        {% for error in form.ppassword.errors %}
+                                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.age(type="number", class="form-control", placeholder="Your Age") }}
+                                        {% for error in form.age.errors %}
+                                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.height(type="number", class="form-control", placeholder="Your Height (sm)") }}
+                                        {% for error in form.height.errors %}
+                                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.gender(type="radio", class="form-control", style="list-style-type: none;") }}
+                                    </div>
+                                    {#                                <div class="form-group">#}
+                                    {#                                    {{ form.gender(type="text", class="form-control", placeholder="F/M") }}#}
+                                    {#                                </div>#}
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ form.email(type="text", class="form-control", placeholder="Your Email") }}
+                                        {% for error in form.email.errors %}
+                                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.target_weight(type="number", class="form-control", placeholder="Your Target Weight (kg)") }}
+                                        {% for error in form.target_weight.errors %}
+                                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.current_weight(type="number", class="form-control", placeholder="Your Current Weight (kg)") }}
+                                        {% for error in form.current_weight.errors %}
+                                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.calories(type="number", class="form-control", placeholder="Number of calories per day") }}
+                                        {% for error in form.calories.errors %}
+                                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                                        {% endfor %}
+                                    </div>
+                                    <p> {{ form.submit() }} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </form>
 {% endblock %}

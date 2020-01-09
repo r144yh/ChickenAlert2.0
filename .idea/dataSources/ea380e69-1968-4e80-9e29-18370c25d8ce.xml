@@ -7,7 +7,7 @@
     <database id="2" parent="1" name="ChickenAlert">
       <ObjectId>16394</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>661</IntrospectionStateNumber>
+      <IntrospectionStateNumber>693</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16395|16397|1
 sequence|table|16406|16410|1
@@ -97,7 +97,7 @@ sequence|table|16510|16512|4
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>662</IntrospectionStateNumber>
+      <IntrospectionStateNumber>694</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="16" parent="2" name="btree">
@@ -306,7 +306,7 @@ sequence|table|16510|16512|4
     <table id="44" parent="15" name="uuser">
       <ObjectId>16448</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>573</StateNumber>
+      <StateNumber>686</StateNumber>
     </table>
     <column id="45" parent="37" name="answer_id">
       <Position>1</Position>
@@ -746,9 +746,9 @@ sequence|table|16510|16512|4
     </column>
     <column id="104" parent="44" name="gender">
       <Position>11</Position>
-      <DataType>char|0s</DataType>
+      <DataType>char(16)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>591</StateNumber>
+      <StateNumber>686</StateNumber>
       <TypeId>1042</TypeId>
     </column>
     <column id="105" parent="44" name="nutrition_id">
@@ -759,20 +759,20 @@ sequence|table|16510|16512|4
     </column>
     <index id="106" parent="44" name="uuser_pkey">
       <ObjectId>16453</ObjectId>
-      <StateNumber>573</StateNumber>
+      <StateNumber>686</StateNumber>
       <ColNames>uuser_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <index id="107" parent="44" name="uuser_login_uindex">
       <ObjectId>16525</ObjectId>
-      <StateNumber>593</StateNumber>
+      <StateNumber>686</StateNumber>
       <ColNames>login</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="108" parent="44" name="uuser_email_uindex">
       <ObjectId>16524</ObjectId>
-      <StateNumber>592</StateNumber>
+      <StateNumber>686</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>

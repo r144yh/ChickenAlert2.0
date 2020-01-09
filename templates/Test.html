@@ -7,15 +7,32 @@
 {% endblock %}
 
 {% block content %}
-
-    <div class="jumbotron">
-        <h1 class="display-4">It's time to learn more about yourself</h1>
-        <p class="lead">Help us make the selection more accurate</p>
-        <hr class="my-4">
-        <p>Just do it</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#que1" role="button">Pass test</a>
-        </p>
+    <br> <br> <br>
+    <div class="jumbotron card card-image"
+    <video autoplay muted loop id="myVideo">
+        <source src="https://www.youtube.com/watch?v=ZWls3Zt9C2M" type="video/mp4">
+    </video>
+    <div class="text-white text-center py-5 px-4">
+        <div>
+            <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>It's time to learn more about
+                yourself</strong></h2>
+            <p class="mx-5 mb-5">Help us make the selection more accurate</p>
+            <a class="btn btn-outline-white btn-md" href="#que1" role="button"><i class="fas fa-clone left"></i>Pass
+                test</a>
+        </div>
+    </div>
+    </div>
+    <div class="jumbotron card card-image"
+         style="background-image: linear-gradient(to right, #e5b1a0 0%, #5d3368 61%, #e5b1a0 100%);">
+        <div class="text-white text-center py-5 px-4">
+            <div>
+                <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>It's time to learn more about
+                    yourself</strong></h2>
+                <p class="mx-5 mb-5">Help us make the selection more accurate</p>
+                <a class="btn btn-outline-white btn-md" href="#que1" role="button"><i class="fas fa-clone left"></i>Pass
+                    test</a>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -36,19 +53,19 @@
 
             if (sum > 0) {
                 if (sum <= 10) {
-                     sum = 10;
+                    sum = 10;
                 } else if (sum > 10 && sum <= 20) {
-                     sum = 20;
+                    sum = 20;
                 } else if (sum > 20 && sum <= 30) {
-                     sum = 30;
+                    sum = 30;
                 } else if (sum > 30 && sum <= 40) {
-                     sum = 40;
+                    sum = 40;
                 } else if (sum > 40 && sum <= 50) {
-                     sum = 50;
+                    sum = 50;
                 } else if (sum > 50 && sum <= 60) {
-                     sum = 60;
+                    sum = 60;
                 } else {
-                     sum = 60;
+                    sum = 60;
                 }
 
                 switch (sum) {
@@ -98,18 +115,18 @@
             </section>
         </div>
     {% endfor %}
-            <button type="button" onclick="fun2();">
-                Отправить
-            </button>
-{#    <div id="overlay" onclick="off()">#}
-{#        <div id="text">#}
-{#            <p align="center">Рекомендованная программа:</p>#}
-{#            <p align="center">Тут будет название программы</p>#}
-{#            <h4 align="center"><a href="">Изучить программу</a></h4>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{#    <div style="padding:20px" align="center">#}
-{#        <button onclick="on(); fun2();">Отправить</button>#}
-{#    </div>#}
+    <button type="button" onclick="fun2();">
+        Отправить
+    </button>
+    {#    <div id="overlay" onclick="off()">#}
+    {#        <div id="text">#}
+    {#            <p align="center">Рекомендованная программа:</p>#}
+    {#            <p align="center">Тут будет название программы</p>#}
+    {#            <h4 align="center"><a href="">Изучить программу</a></h4>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {#    <div style="padding:20px" align="center">#}
+    {#        <button onclick="on(); fun2();">Отправить</button>#}
+    {#    </div>#}
 {% endblock %}

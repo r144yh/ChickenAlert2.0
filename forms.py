@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from psycopg2._psycopg import cursor
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DecimalField, DateField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DecimalField, DateField, RadioField, IntegerField
+from wtforms.validators import DataRequired, Email, ValidationError, NumberRange
 from config import try_connect
 
 
@@ -16,14 +16,15 @@ class RegistrationForm(FlaskForm):
     login = StringField('Логин', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     ppassword = PasswordField('Пароль', validators=[DataRequired()])
-    reg_date = DateField('Дата Регистрации')
-    target_weight = DecimalField('Целевой вес')
-    current_weight = DecimalField('Текущий вес')
-    calories = DecimalField('Кол-во каллорий в день')
-    height = DecimalField('Рост')
-    age = DecimalField('Возраст')
-    gender = StringField('Пол')
-    submit = SubmitField('Регистрация')
+    # reg_date = DateField('Дата Регистрации')
+    target_weight = DecimalField('Целевой вес', validators=[NumberRange(min=40, max=300)])
+    current_weight = DecimalField('Текущий вес', validators=[NumberRange(min=20, max=300)])
+    calories = DecimalField('Кол-во каллорий в день', validators=[NumberRange(min=0, max=10000)])
+    height = DecimalField('Рост', validators=[NumberRange(min=0, max=300)])
+    age = DecimalField('Возраст', validators=[NumberRange(min=0, max=100)])
+    # gender = StringField('Пол')
+    gender = RadioField('Пол', choices=[('value', 'Female'), ('value_two', 'Male')])
+    submit = SubmitField('Register')
     #
     # def validate_login(self, login):
     #     login = login.data

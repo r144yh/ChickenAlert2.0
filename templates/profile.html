@@ -1,12 +1,144 @@
 {% extends "base.html" %}
 
-{#{% block styles %}#}
-{#    {{ super() }}#}
-{#    <link rel="stylesheet"#}
-{#          href="/static/styles/index.css">#}
-{#{% endblock %}#}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="/static/styles/profile.css">
+{% endblock %}
 
 {% block content %}
-    <br><br><br>
- <div><pre><b>{{ records }} </b></pre></div>
+    <br><br><br><br><br>
+    <div class="container emp-profile" style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="/static/images/burger.png"
+                             alt=""/>
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5>
+                            {{ records[1] }}
+                        </h5>
+                        <h6>Стремящийся к изменениям</h6>
+                        <p class="proile-rating">Test program : <span>Название программы</span></p>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                   aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                   aria-controls="profile" aria-selected="false">Body</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>FOR RESULTS LINK</p>
+                        <a href="{{ url_for('test', test_id=1) }}">Test</a><br/>
+                        <a href="{{ url_for('logout') }}">Go out and just do it</a><br/>
+                        <p>SKILLS</p>
+                        <a href="{{ url_for('sport_program', sport_id=4) }}">Morning exercise</a><br/>
+                        <a href="{{ url_for('sport_program', sport_id=5) }}">5 minutes for yourself</a><br/>
+                        <a href="{{ url_for('sport_program', sport_id=7) }}">Basic set of products</a><br/>
+                        <a href="{{ url_for('nutrition_program', nutrition_id=2) }}">Basic nutrition program</a><br/>
+                        <a href="{{ url_for('sport_program', sport_id=2) }}">Basic sports program</a><br/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>User</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[1] }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[2] }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Registration date</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[3] }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Height</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[7] }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Age</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[8] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Target weight</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[4] }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Current weight</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[5] }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Calories per day</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[6] }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Gender</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ records[9] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock %}
