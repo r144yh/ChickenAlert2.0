@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bc099a8-7678-4ba9-aad2-adb7779c6196" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce/storage_v2/_src_/database/ChickenAlert.xwhsEg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce/storage_v2/_src_/database/ChickenAlert.xwhsEg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nutrition_program.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nutrition_program.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sport_program.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sport_program.html" afterDir="false" />
-    </list>
+    <list default="true" id="0bc099a8-7678-4ba9-aad2-adb7779c6196" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +194,7 @@
       <workItem from="1577317645433" duration="1002000" />
       <workItem from="1577484225812" duration="654000" />
       <workItem from="1578175820229" duration="68000" />
-      <workItem from="1578498153139" duration="50851000" />
+      <workItem from="1578498153139" duration="51768000" />
     </task>
     <servers />
   </component>
@@ -223,6 +215,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ChikenAlert2_0$ChikenAlert2_0.coverage" NAME="ChikenAlert2.0 Coverage Results" MODIFIED="1578557031542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ChikenAlert2_0$ChikenAlert2_0.coverage" NAME="ChikenAlert2.0 Coverage Results" MODIFIED="1578560040461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
