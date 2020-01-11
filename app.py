@@ -41,13 +41,14 @@ def main():
 def index():
     conn = try_connect()
     cursor = conn.cursor()
-    cursor.execute('SELECT login, np_name, feedback_head, feedback_text FROM feedback, uuser, nutritionprogram WHERE '
-                   'uuser.uuser_id = feedback.uuser_id AND feedback.nutrition_id = nutritionprogram.nutrition_id')
+    cursor.execute('SELECT name, np_name, feedback_head, feedback_text, feedback.nutrition_id FROM feedback, '
+                   'nutritionprogram WHERE feedback.nutrition_id = nutritionprogram.nutrition_id')
     records = cursor.fetchall()
     random.shuffle(records)
     cursor.close()
     conn.close()
-    return render_template('index.html', title='Home', records=records)
+    major = True
+    return render_template('index.html', title='Home', major=major, records=records)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -175,8 +176,8 @@ def add_feedback(nutrition_id):
     if form.validate_on_submit():
         conn = try_connect()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO feedback values(DEFAULT, %s, %s, %s, %s)',
-                       (form.head.data, form.text.data, nutrition_id, current_user.id))
+        cursor.execute('INSERT INTO feedback values(DEFAULT, %s, %s, %s, %s, %s)',
+                       (form.head.data, form.text.data, nutrition_id, current_user.id, form.name.data))
         conn.commit()
         cursor.close()
         conn.close()
@@ -193,8 +194,8 @@ def nutrition_program(nutrition_id):
                    'WHERE nutrition_id = %s',
                    (nutrition_id,))
     records = cursor.fetchone()
-    cursor.execute('SELECT login, np_name, feedback_head, feedback_text FROM feedback, uuser, nutritionprogram WHERE '
-                   'uuser.uuser_id = feedback.uuser_id AND feedback.nutrition_id = nutritionprogram.nutrition_id AND '
+    cursor.execute('SELECT name, np_name, feedback_head, feedback_text FROM feedback, nutritionprogram WHERE '
+                   'feedback.nutrition_id = nutritionprogram.nutrition_id AND '
                    'feedback.nutrition_id = %s', (nutrition_id, ))
     fb = cursor.fetchall()
     np_desc = records[3].split('.')
@@ -226,9 +227,12 @@ def sport_program(sport_id):
                    'WHERE sport_id = %s',
                    (sport_id,))
     records = cursor.fetchone()
+    sp_desc = records[3].split('.')
+    pl_name = records[4].split('.')
+    pl_desc = records[5].split('.')
     cursor.close()
     conn.close()
-    return render_template('sport_program.html', title='Sport Program', records=records)
+    return render_template('sport_program.html', title='Sport Program', records=records, sp_desc=sp_desc, pl_name=pl_name, pl_desc=pl_desc)
 
 
 @app.route('/test/<test_id>', methods=["GET", "POST"])

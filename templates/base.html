@@ -52,35 +52,35 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto smooth-scroll">
                 {% if major %}
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="#slide">Superiority</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#nutrition">Health</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#sport">Sport</a>
+{#                    <li class="nav-item ">#}
+{#                        <a class="nav-link" href="#sport">Sport</a>#}
+{#                    </li>#}
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#reviews">Reviews</a>
                     </li>
                 {% endif %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="{{ url_for('index') }}" id="navbarDropdownMenuLink"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nutrition program</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=10) }}">Protein Weight Loss</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=10) }}">Высокопротеиновое питание</a>
                         <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=20) }}">3-недельная диета</a>
                         <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=30) }}">Пища для силы</a>
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=40) }}">Keto Burn</a>
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=50) }}">Sugar Detox</a>
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=60) }}">Vegan for a week</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=40) }}">Классическая</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=50) }}">Сахарный детокс</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=60) }}">Веган на неделю</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link  dropdown-toggle" href="{{ url_for('index') }}" id="navbarDropdownMenuLink"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports program</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=1) }}">Ignition Points</a>
-                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=2) }}">Bis And Tris</a>
-                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=3) }}">Head-To-Toe Meltdown</a>
+                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=1) }}">Для силы</a>
+                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=2) }}">Для начинающих</a>
+                        <a class="dropdown-item" href="{{ url_for('sport_program', sport_id=3) }}">Для выносливых</a>
                     </div>
                 </li>
             </ul>

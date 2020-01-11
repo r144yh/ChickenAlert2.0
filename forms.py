@@ -61,8 +61,9 @@ class EditProfileForm(FlaskForm):
 
 
 class FeedbackForm(FlaskForm):
-    head = StringField('asd', validators=[DataRequired()])
-    text = TextAreaField('Your feedback', validators=[DataRequired()])
+    name = StringField('Your Name', validators=[DataRequired()])
+    head = StringField('Your lost kilos', validators=[DataRequired()])
+    text = TextAreaField('Your Feedback', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 

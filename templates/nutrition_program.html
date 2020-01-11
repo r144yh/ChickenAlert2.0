@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 
-{#{% block styles %}#}
-{#    {{ super() }}#}
-{#    <link rel="stylesheet"#}
-{#          href="/static/styles/index.css">#}
-{#{% endblock %}#}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="/static/styles/nutrPr.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+{% endblock %}
 
 
 {% block content %}
     <br><br><br><br><br>
+    {% if current_user.np == records[1] %}<br>
+        <div align="center"><a href="{{ url_for('add_feedback', nutrition_id=records[1]) }}" role="button"
+                               style="border:none; border-radius:1.5rem; padding: 1%; width: 20%;
+                                            cursor: pointer;
+                                            background: linear-gradient(to right, #80d8f5 0%, #92c8f5 71%, #5fabf5 100%);
+                                            color: #f9f6ff;">Leave feedback</a></div><br><br><br>
+    {% endif %}
+    <br>
     <div class="container"
          style="border: 1rem double  #92c8f5; border-radius: 3.125rem;  background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);">
         <div class="container my-5 z-depth-1">
@@ -23,80 +32,188 @@
 
                     <div class="col-md-5 d-flex align-items-center">
                         <div class="container"
-                             style="background-color: #F5E2CD; border: 0 solid #535d64; border-radius: 0.625rem"><br>
-                            <h3 class="font-weight-bold mb-4">{{ records[2] }}</h3>
-                            <p>{{ records[3] }}</p>
-                            <a class="nav-link active" style=" text-decoration: none;
-                                   outline: none;
-                                   display: inline-block;
-                                   color: white;
-                                   padding: 20px 30px;
-                                   margin: 10px 20px;
-                                   border-radius: 10px;
-                                   font-family: 'Montserrat', sans-serif;
-                                   text-transform: uppercase;
-                                   letter-spacing: 2px;
-                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
-                                   background-size: 200% auto;
-                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
-                                   transition: .5s;"
-                               href="#read" role="button">Read more</a><br><br>
-                        </div>
-                    </div>
-
-                    <div class="col-md-5 d-flex align-items-center">
-                        <div class="container"
-                             style="background-color: #ccfffd; border: 0 solid #535d64; border-radius: 0.625rem"><br>
-                            <h3 class="font-weight-bold mb-4">{{ records[5] }}</h3>
-                            <p>{{ records[6] }}</p>
-                            <a class="nav-link active" style=" text-decoration: none;
-                                   outline: none;
-                                   display: inline-block;
-                                   color: white;
-                                   padding: 20px 30px;
-                                   margin: 10px 20px;
-                                   border-radius: 10px;
-                                   font-family: 'Montserrat', sans-serif;
-                                   text-transform: uppercase;
-                                   letter-spacing: 2px;
-                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
-                                   background-size: 200% auto;
-                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
-                                   transition: .5s;"
-                               href="#placetren" role="button">Read more</a><br><br>
+                             style="background-color: #F5E2CD; border: 0 solid #535d64; border-radius: 0.625rem; font-family: 'Inconsolata', monospace;">
+                            <br>
+                            <h3 class="mb-4">{{ records[2] }}</h3>
+                            <hr>
+                            <p>{{ np_desc[0] }}</p>
+                            <p>{{ np_desc[1] }}</p>
+                            <p>{{ np_desc[2] }}</p>
+                            <h3>Сильные стороны программы</h3>
+                            <hr>
+                            <ul>
+                                <li>{{ np_desc[3] }}</li>
+                                <li>{{ np_desc[4] }}</li>
+                                <li>{{ np_desc[5] }}</li>
+                            </ul>
+                            <div><a class="nav-link active" style=" text-decoration: none;
+                                       outline: none;
+                                       display: inline-block;
+                                       color: white;
+                                       padding: 20px 30px;
+                                       margin: 10px 20px;
+                                       border-radius: 10px;
+                                       font-family: 'Montserrat', sans-serif;
+                                       text-transform: uppercase;
+                                       letter-spacing: 2px;
+                                       background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
+                                       background-size: 200% auto;
+                                       box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                       transition: .5s;"
+                                     href="#read" role="button">Read more about Eat</a><br><br></div>
+                            <div><a class="nav-link active" style=" text-decoration: none;
+                                       outline: none;
+                                       display: inline-block;
+                                       color: white;
+                                       padding: 20px 30px;
+                                       margin: 10px 20px;
+                                       border-radius: 10px;
+                                       font-family: 'Montserrat', sans-serif;
+                                       text-transform: uppercase;
+                                       letter-spacing: 2px;
+                                       background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
+                                       background-size: 200% auto;
+                                       box-shadow: 0 0 20px rgba(0,0,0,.1);
+                                       transition: .5s;"
+                                     href="{{ url_for('sport_program', sport_id=2) }}"
+                                    role="button">Read more about Sport</a><br><br></div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
 
-    <div class="container my-5 py-5 z-depth-1"
-         style="background-color: #F5E2CD; border: 0 solid #535d64; border-radius: 0.625rem">
-        <!--Section: Content-->
-        <section class="text-center px-md-5 mx-md-5 dark-grey-text" id="read">
-            <!--Grid row-->
-            <div class="row d-flex justify-content-center">
-                <!--Grid column-->
-                <div class="col-lg-7">
-                    <p>{{ np_desc[0] }}</p>
-                    {% for post in np_desc %}
-                        <p>{{ post }}</p>
-                    {% endfor %}
-                    <p>Тут по задумке должно быть описание программы в примере с рецептами. Но до сдачи курсача остался
-                        час, а блок текста на функционал никак не повлияет. Так что, давайте представим, что он таки
-                        есть тут. Спасибо за понимание.</p>
-                </div>
-            </div>
-        </section>
+    <div class="container-fluid" id="read" style="font-family: 'Inconsolata', monospace;">
+
+        <div id="London" class="tabcontent" style="color: #b55b53">
+            <h3 align="left">{{ nutr_recept[0] }}</h3>
+            <hr>
+            <p align="left">{{ nutr_recept[1] }}</p>
+            <hr>
+            <h4 align="left">Список ингредиентов</h4>
+            <ul align="left">
+                <li>{{ nutr_recept[2] }}</li>
+                <li>{{ nutr_recept[3] }}</li>
+                <li>{{ nutr_recept[4] }}</li>
+                <li>{{ nutr_recept[5] }}</li>
+                <li>{{ nutr_recept[6] }}</li>
+                <li>{{ nutr_recept[7] }}</li>
+                <li>{{ nutr_recept[8] }}</li>
+            </ul>
+            <hr>
+            <h6>ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h6>
+            <ul style="list-style-type: none;">
+                <li>{{ nutr_recept[9] }}</li>
+                <li>{{ nutr_recept[10] }}</li>
+                <li>{{ nutr_recept[11] }}</li>
+            </ul>
+        </div>
+
+        <div id="Paris" class="tabcontent">
+            <h3 align="left">{{ nutr_recept[12] }}</h3>
+            <hr>
+            <p align="left">{{ nutr_recept[13] }}</p>
+            <hr>
+            <h4 align="left">Список ингредиентов</h4>
+            <ul align="left">
+                <li>{{ nutr_recept[14] }}</li>
+                <li>{{ nutr_recept[15] }}</li>
+                <li>{{ nutr_recept[16] }}</li>
+                <li>{{ nutr_recept[17] }}</li>
+                <li>{{ nutr_recept[18] }}</li>
+                <li>{{ nutr_recept[19] }}</li>
+                <li>{{ nutr_recept[20] }}</li>
+            </ul>
+            <hr>
+            <h6 align="center">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h6>
+            <ul style="list-style-type: none;" align="center">
+                <li>{{ nutr_recept[21] }}</li>
+                <li>{{ nutr_recept[22] }}</li>
+                <li>{{ nutr_recept[23] }}</li>
+                <li>{{ nutr_recept[24] }}</li>
+                <li>{{ nutr_recept[25] }}</li>
+                <li>{{ nutr_recept[26] }}</li>
+            </ul>
+        </div>
+
+        <div id="Tokyo" class="tabcontent">
+            <h3 align="left">{{ nutr_recept[27] }}</h3>
+            <hr>
+            <p align="left">{{ nutr_recept[28] }}</p>
+            <hr>
+            <h4 align="left">Список ингредиентов</h4>
+            <ul align="left">
+                <li>{{ nutr_recept[29] }}</li>
+                <li>{{ nutr_recept[30] }}</li>
+                <li>{{ nutr_recept[31] }}</li>
+                <li>{{ nutr_recept[32] }}</li>
+                <li>{{ nutr_recept[33] }}</li>
+                <li>{{ nutr_recept[34] }}</li>
+            </ul>
+            <hr>
+            <h6 align="center">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h6>
+            <ul style="list-style-type: none;" align="center">
+                <li>{{ nutr_recept[35] }}</li>
+                <li>{{ nutr_recept[36] }}</li>
+                <li>{{ nutr_recept[37] }}</li>
+                <li>{{ nutr_recept[38] }}</li>
+            </ul>
+        </div>
+
+        <div id="Oslo" class="tabcontent" style="color:yellow;">
+            <h3 align="left">{{ nutr_recept[39] }}</h3>
+            <hr>
+            <p align="left">{{ nutr_recept[40] }}</p>
+            <hr>
+            <h4 align="left">Список ингредиентов</h4>
+            <ul align="left">
+                <li>{{ nutr_recept[41] }}</li>
+                <li>{{ nutr_recept[42] }}</li>
+                <li>{{ nutr_recept[43] }}</li>
+                <li>{{ nutr_recept[44] }}</li>
+            </ul>
+            <hr>
+            <h6 align="center">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h6>
+            <ul style="list-style-type: none;" align="center">
+                <li>{{ nutr_recept[45] }}</li>
+                <li>{{ nutr_recept[46] }}</li>
+                <li>{{ nutr_recept[47] }}</li>
+            </ul>
+        </div>
+
+        <button class="tablink" onclick="openCity('London', this, '#afe2ff')" id="defaultOpen">Завтрак</button>
+        <button class="tablink" onclick="openCity('Paris', this, '#6ab56a')">Обед</button>
+        <button class="tablink" onclick="openCity('Tokyo', this, '#2c84ff')">Ужин</button>
+        <button class="tablink" onclick="openCity('Oslo', this, '#623168')">Закуски</button>
+
+        <script>
+            function openCity(cityName, elmnt, color) {
+                // Hide all elements with class="tabcontent" by default */
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                // Remove the background color of all tablinks/buttons
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+
+                // Show the specific tab content
+                document.getElementById(cityName).style.display = "block";
+
+                // Add the specific color to the button used to open the tab content
+                elmnt.style.backgroundColor = color;
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+        </script>
     </div>
+    <br><br><br><br><br><br><br>
 
-    <br><br><br><br><br>
-    {% if current_user.np == records[1] %}
-        <span><a href="{{ url_for('add_feedback', nutrition_id=records[1]) }}">Leave feedback</a></span>
-    {% endif %}
-    {% for row in fb %}
-        <p>{{ row[0] }} {{ row[1] }} {{ row[2] }} {{ row[3] }} </p>
-    {% endfor %}
 {% endblock %}

@@ -4,24 +4,62 @@
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet"
-          href="/static/styles/profile.css">
+          href="/static/styles/progNutr.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-    <br><br><br><br><br>
-    <div class="col align-self-center">
-        <div class="container emp-profile"
-             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-            <div align="center">
-                <div class="profile-head">
-                    <h1>Add feedback</h1>
-                </div>
-            </div>
-            <div class="col align-items-center">
-                <div class="row-md-4">
-                    {{ wtf.quick_form(form) }}
-                </div>
-            </div>
+    <div class="container contact-form"
+         style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
         </div>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <h3>Leave your feedback about program</h3>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ form.name.label }}
+                        {{ form.name(type="text", class="form-control", placeholder="Your Name *") }}
+                        {% for error in form.name.errors %}
+                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.head.label }}
+                        {{ form.head(type="text", class="form-control", placeholder="How many kg & how long have you lost? *") }}
+                        {% for error in form.head.errors %}
+                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ form.text.label }}
+                        {{ form.text( type="text", class="form-control", placeholder="Your Message *", style="width: 100%; height: 150px;") }}
+                        {% for error in form.head.errors %}
+                            <span style="color: #9f5a6c;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <p><input id="submit" name="submit" type="submit" class="submit" value="Submit"
+                                  style="float: right;
+                                                  margin-top: 10%;
+                                                  border: none;
+                                                  border-radius: 1.5rem;
+                                                  padding: 2%;
+                                                  background: #e5b1a0;
+                                                  color: #495057;
+                                                  font-weight: 600;
+                                                  width: 50%;
+                                                  cursor: pointer;"></p>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 {% endblock %}

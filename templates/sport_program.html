@@ -4,22 +4,19 @@
     {{ super() }}
     <link rel="stylesheet"
           href="/static/styles/profile.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
     <br><br>
     <div class="container emp-profile"
-         style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-
-
+         style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
         <section class="dark-grey-text">
-
             <h3 class="text-center font-weight-bold mb-4 pb-2">{{ records[2] }}</h3>
-            <p class="text-center text-muted w-responsive mx-auto mb-5">Стань частью самой большой спортивной команды.
-                Тренируйся: выкладывайся на полную на любой из тренировок.
-                Все необходимое
-                для победы у тебя уже есть.</p>
-
+            <hr>
+            <p class="text-center text-muted w-responsive mx-auto mb-5">
+            <h3>{{ sp_desc[1] }}</h3></p>
+            <h5>{{ sp_desc[0] }}{{ sp_desc[2] }}</h5>
             <!-- Grid row -->
             <div class="row">
 
@@ -39,142 +36,139 @@
                         <li class="d-flex justify-content-center pl-4">
                             <span class="fa-li"><i class="fas fa-book fa-2x cyan-text"></i></span>
                             <div>
-                                <h5 class="font-weight-bold mb-3">Education</h5>
-                                <p class="text-muted">Все знания, необходимые для тренировок ты сможешь получить в нашем
-                                    приложении</p>
-                            </div>
-                        </li>
-                        <li class="d-flex justify-content-center pl-4">
-                            <span class="fa-li"><i class="fas fa-code fa-2x red-text"></i></span>
-                            <div>
-                                <h5 class="font-weight-bold mb-3">Technology & Finance</h5>
-                                <p class="text-muted">Всё, что от тебя требуется - просто скачать на телефон. Это будет
-                                    лишь одно из сотни твоих приложений, но при этом, самое важное. Самое главное: быть
-                                    спортивным - бесплатно.</p>
+                                <hr>
+                                <h5 class="font-weight-bold mb-3">Разрушители мифов</h5>
+                                <hr>
+                                <ul>
+                                    <h6>{{ sp_desc[3] }}</h6>
+                                    <hr>
+                                    <li class="text-muted">{{ sp_desc[4] }}</li>
+                                    <hr>
+                                    <h6>{{ sp_desc[5] }}</h6>
+                                    <hr>
+                                    <li class="text-muted">{{ sp_desc[6] }}</li>
+                                    <hr>
+                                    <h6>{{ sp_desc[7] }}</h6>
+                                    <hr>
+                                    <li class="text-muted">{{ sp_desc[8] }}</li>
+                                    <hr>
+                                    <h6>{{ sp_desc[9] }}</h6>
+                                    <hr>
+                                    <li class="text-muted">{{ sp_desc[10] }}</li>
+                                    <hr>
+                                </ul>
                             </div>
                         </li>
                     </ul>
-
                 </div>
-                <!-- Grid column -->
-
             </div>
-            <!-- Grid row -->
-
             <hr class="my-5">
-
         </section>
-        <!-- Section: Block Content -->
-
-
     </div>
     <div>
 
         <div class="container emp-profile"
-             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-
-
-            <!--Section: Content-->
+             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
             <section class="text-center px-md-5 mx-md-5 dark-grey-text">
-
-                <!--Grid row-->
                 <div class="row d-flex justify-content-center">
-
-                    <!--Grid column-->
                     <div class="col-lg-7">
-
-                        <p>{{ records[3] }}</p>
-
+                        <h3>{{ sp_desc[11] }}</h3>
+                        <hr>
+                        <h5>{{ sp_desc[12] }}</h5>
+                        <hr>
+                        <h5 class="font-weight-bold mb-3"></h5>
+                        <hr>
+                        <br>
+                        <ul style="list-style-type: none;" align="center">
+                            <h6>{{ sp_desc[13] }}</h6>
+                            <hr>
+                            <li class="text-muted">{{ sp_desc[14] }}. {{ sp_desc[15] }}</li>
+                            <hr>
+                            <h6>{{ sp_desc[16] }}</h6>
+                            <hr>
+                            <li class="text-muted">{{ sp_desc[17] }}. {{ sp_desc[18] }}</li>
+                            <hr>
+                            <h6>{{ sp_desc[19] }}</h6>
+                            <hr>
+                            <li class="text-muted">{{ sp_desc[20] }}. {{ sp_desc[21] }}</li>
+                            <hr>
+                            <h6>{{ sp_desc[22] }}</h6>
+                            <hr>
+                            <li class="text-muted">{{ sp_desc[23] }}. {{ sp_desc[24] }}. {{ sp_desc[25] }}</li>
+                            <hr>
+                        </ul>
                     </div>
-                    <!--Grid column-->
-
                 </div>
-                <!--Grid row-->
             </section>
-            <!--Section: Content-->
-
-
         </div>
 
 
-        <!-- Section: Block Content -->
         <section class="dark-grey-text text-center" id="placetren">
             <div class="container emp-profile"
                  style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-                <h3>Our best place</h3>
+                <h3>Our best place</h3><hr>
                 <p class="text-muted w-responsive mx-auto mb-5">Начать заниматься проще, чем вы думаете</p>
+                <div class="row">
 
-            <!-- Grid row -->
-            <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="container emp-profile"
+                             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
+                            <div class="view overlay rounded z-depth-1">
+                                <img src="/static/images/tiago-aleixo-ToUPFfxkmw8-unsplash.jpg" class="img-fluid"
+                                     alt="Sample project image">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
 
-                <!-- Grid column -->
-                <div class="col-lg-4 col-md-12 mb-4">
-                    <div class="container emp-profile"
-                         style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-                        <div class="view overlay rounded z-depth-1">
-                            <img src="/static/images/tiago-aleixo-ToUPFfxkmw8-unsplash.jpg" class="img-fluid"
-                                 alt="Sample project image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <div class="px-3 pt-3 mx-1 mt-1 pb-0">
-                            <h4 class="font-weight-bold mt-1 mb-3">{{ records[4] }}</h4>
-                            <p class="text-muted">{{ records[5] }}</p>
+                            <div class="px-3 pt-3 mx-1 mt-1 pb-0">
+                                <h4 class="font-weight-bold mt-1 mb-3">{{ pl_name[0] }}</h4>
+                                <p class="text-muted">{{ pl_desc[0] }}. {{ pl_desc[1] }}. {{ pl_desc[2] }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Grid column -->
 
-                <!-- Grid column -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="container emp-profile"
-                         style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-                        <div class="view overlay rounded z-depth-1">
-                            <img src="/static/images/victor-freitas-qZ-U9z4TQ6A-unsplash.jpg" class="img-fluid"
-                                 alt="Sample project image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
 
-                        <div class="px-3 pt-3 mx-1 mt-1 pb-0">
-                            <h4 class="font-weight-bold mt-1 mb-3">Финтес клуб/зал</h4>
-                            <p class="text-muted">Если вы любитель комфорта на максималках,то это место для вас. В большинстве клубов найдётся всё необходимое оборудование для ваших тренировок. Подойдет на любой уровень подготовки.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Grid column -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="container emp-profile"
+                             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
+                            <div class="view overlay rounded z-depth-1">
+                                <img src="/static/images/victor-freitas-qZ-U9z4TQ6A-unsplash.jpg" class="img-fluid"
+                                     alt="Sample project image">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
 
-                <!-- Grid column -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="container emp-profile"
-                         style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-                        <div class="view overlay rounded z-depth-1">
-                            <img src="/static/images/dominik-martin-b2-fBVrfx0o-unsplash.jpg" class="img-fluid"
-                                 alt="Sample project image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <div class="px-3 pt-3 mx-1 mt-1 pb-0">
-                            <h4 class="font-weight-bold mt-1 mb-3">Зал с бассейном</h4>
-                            <p class="text-muted">Для усиления эффекта от тренировок, крайне полезно,хотя бы раз в неделю, провести часовую тренировку в воде. </p>
-
+                            <div class="px-3 pt-3 mx-1 mt-1 pb-0">
+                                <h4 class="font-weight-bold mt-1 mb-3">{{ pl_name[1] }}</h4>
+                                <p class="text-muted">{{ pl_desc[3] }}. {{ pl_desc[4] }}. {{ pl_desc[5] }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Grid column -->
 
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="container emp-profile"
+                             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
+                            <div class="view overlay rounded z-depth-1">
+                                <img src="/static/images/dominik-martin-b2-fBVrfx0o-unsplash.jpg" class="img-fluid"
+                                     alt="Sample project image">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <div class="px-3 pt-3 mx-1 mt-1 pb-0">
+                                <h4 class="font-weight-bold mt-1 mb-3">{{ pl_name[2] }}</h4>
+                                <p class="text-muted">{{ pl_desc[6] }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <!-- Grid row -->
- </div>
         </section>
-        <!-- Section: Block Content -->
-
-
     </div>
 
 {% endblock %}
