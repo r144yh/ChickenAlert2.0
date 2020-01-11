@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
-
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet"
-          href="/static/styles/log.css">
+          href="/static/styles/userLog.css">
 {% endblock %}
 
 {% block content %}
@@ -12,24 +11,24 @@
     <form action="" method="post" novalidate class="transparent"
           style="background-image: url(https://sun9-15.userapi.com/c857228/v857228615/33605/mJg8c8dMbKM.jpg);">
         <div class="form-inner">
-            <h3>Вход</h3>
-            {{ form.hidden_tag() }}
-            <p><br>
+            <h3>Вход</h3> <br>
+            <div class="form-group">
+                {{ form.hidden_tag() }}
                 {{ form.login.label }}
-                {{ form.login(size=15) }}
+                {{ form.login(type="text", class="form-control", placeholder="Your login") }}
                 {% for error in form.login.errors %}
-                    <span style="color: #9f5a6c;">[{{ error }}]</span>
+                    <span style="color: #afe2ff;">[{{ error }}]</span>
                 {% endfor %}
-            </p>
-            <p>
+            </div>
+            <div class="form-group">
                 {{ form.password.label }}
-                {{ form.password(size=25) }}
+                {{ form.password(type="password", class="form-control", placeholder="Your password") }}
                 {% for error in form.password.errors %}
-                    <span style="color: #9f5a6c;">[{{ error }}]</span>
+                    <span style="color: #afe2ff;">[{{ error }}]</span>
                 {% endfor %}
-            </p>
-            {#            <p><br> {{ form.remember_me() }} {{ form.remember_me.label }} </p>#}
-            <p><br> {{ form.submit() }}</p>
+            </div>
+            <br>
+            <p> {{ form.submit() }} </p>
         </div>
     </form>
 {% endblock %}

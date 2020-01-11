@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from psycopg2._psycopg import cursor
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DecimalField, DateField, RadioField, IntegerField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DecimalField, DateField, RadioField, \
+    IntegerField, TextAreaField
 from wtforms.validators import DataRequired, Email, ValidationError, NumberRange
 from config import try_connect
 
@@ -10,6 +11,29 @@ class LoginForm(FlaskForm):
     password = PasswordField('Пароль', validators=[DataRequired()])
     remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Войти')
+
+    def validate_username(self, login):
+        user = login.data
+        conn = try_connect()
+        cursor1 = conn.cursor()
+        cursor1.execute('SELECT login FROM uuser WHERE login = %s', (user,))
+        records = cursor1.fetchone()
+        if not records:
+            raise ValidationError('No such username')
+        cursor1.close()
+        conn.close()
+
+    def validate_password(self, password):
+        pas = password.data
+        user = self.login.data
+        conn = try_connect()
+        cursor1 = conn.cursor()
+        cursor1.execute('SELECT ppassword FROM uuser WHERE login = %s and ppassword = %s', (user,pas))
+        records = cursor1.fetchone()
+        if not records:
+            raise ValidationError('Wrong password')
+        cursor1.close()
+        conn.close()
 
 
 class RegistrationForm(FlaskForm):
@@ -25,13 +49,6 @@ class RegistrationForm(FlaskForm):
     # gender = StringField('Пол')
     gender = RadioField('Пол', choices=[('Female', 'Female'), ('Male', 'Male')])
     submit = SubmitField('Register')
-    #
-    # def validate_login(self, login):
-    #     login = login.data
-    #     conn = try_connect()
-    #     records = cursor.execute('SELECT login FROM uuser WHERE login = %s', (login, ))
-    #     if records:
-    #         raise ValidationError('Choose another login')
 
 
 class EditProfileForm(FlaskForm):
@@ -40,6 +57,12 @@ class EditProfileForm(FlaskForm):
     calories = DecimalField('Кол-во каллорий в день', validators=[NumberRange(min=0, max=10000)])
     height = DecimalField('Рост', validators=[NumberRange(min=0, max=300)])
     age = DecimalField('Возраст', validators=[NumberRange(min=0, max=100)])
+    submit = SubmitField('Submit')
+
+
+class FeedbackForm(FlaskForm):
+    head = StringField('asd', validators=[DataRequired()])
+    text = TextAreaField('Your feedback', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 

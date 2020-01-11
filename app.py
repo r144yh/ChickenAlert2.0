@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask import render_template, flash, redirect, url_for, session
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from config import Config, try_connect
-from forms import LoginForm, RegistrationForm, EditProfileForm
+from forms import LoginForm, RegistrationForm, EditProfileForm, FeedbackForm
 from flask_bootstrap import Bootstrap
 import psycopg2
 import json
@@ -11,6 +11,7 @@ from models import User
 from flask_moment import Moment
 import datetime
 import numpy as np
+import random
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -38,8 +39,15 @@ def main():
 
 @app.route('/index')
 def index():
-    major = True
-    return render_template('index.html', title='Home', major=major)
+    conn = try_connect()
+    cursor = conn.cursor()
+    cursor.execute('SELECT login, np_name, feedback_head, feedback_text FROM feedback, uuser, nutritionprogram WHERE '
+                   'uuser.uuser_id = feedback.uuser_id AND feedback.nutrition_id = nutritionprogram.nutrition_id')
+    records = cursor.fetchall()
+    random.shuffle(records)
+    cursor.close()
+    conn.close()
+    return render_template('index.html', title='Home', records=records)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -74,7 +82,7 @@ def registration():
         conn = try_connect()
         cursor = conn.cursor()
         nutrition_id = 1
-        cursor.execute('INSERT INTO uuser VALUES(DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s )',
+        cursor.execute('INSERT INTO uuser VALUES(DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NULL)',
                        (form.login.data, form.email.data, form.ppassword.data, now, form.target_weight.data,
                         form.current_weight.data,
                         form.calories.data,
@@ -101,18 +109,28 @@ def logout():
 @app.route('/profile/<uuser_id>', methods=['GET', 'POST'])
 @login_required
 def profile(uuser_id):
+    if current_user.id != uuser_id:
+        return redirect(url_for('error_404'))
     rand_num = np.random.randint(1, 9)
+    now = datetime.datetime.now()
     conn = try_connect()
     cursor = conn.cursor()
     cursor.execute('SELECT uuser_id, login, email, reg_date, target_weight, current_weight, calories, '
-                   'height, age, gender, np_name '
+                   'height, age, gender, np_name, nutrition_id, date_part(\'day\', %s - nutrition_start) '
                    'FROM uuser NATURAL JOIN nutritionprogram '
                    'WHERE uuser_id = %s',
-                   (uuser_id,))
+                   (now, uuser_id,))
     records = cursor.fetchone()
+    flag_no_prog = False
+    if records[10] == 'No prog                                 ':
+        flag_no_prog = True
+    if records[12] is not None:
+        days = int(records[12])
+    else:
+        days = 0
     cursor.close()
     conn.close()
-    return render_template('profile.html', title='Profile', records=records, rand_num=rand_num)
+    return render_template('profile.html', title='Profile', records=records, rand_num=rand_num, flag_no_prog=flag_no_prog, days=days)
 
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -148,6 +166,24 @@ def edit_profile():
     return render_template('edit_profile.html', title='Edit Profile', form=form)
 
 
+@app.route('/add_feedback<nutrition_id>', methods=['GET', 'POST'])
+@login_required
+def add_feedback(nutrition_id):
+    if int(nutrition_id) != int(current_user.np):
+        return redirect(url_for('error_404'))
+    form = FeedbackForm()
+    if form.validate_on_submit():
+        conn = try_connect()
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO feedback values(DEFAULT, %s, %s, %s, %s)',
+                       (form.head.data, form.text.data, nutrition_id, current_user.id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return redirect(url_for('index'))
+    return render_template('feedback.html', form=form)
+
+
 @app.route('/nutrition_program/<nutrition_id>')
 def nutrition_program(nutrition_id):
     conn = try_connect()
@@ -157,17 +193,24 @@ def nutrition_program(nutrition_id):
                    'WHERE nutrition_id = %s',
                    (nutrition_id,))
     records = cursor.fetchone()
+    cursor.execute('SELECT login, np_name, feedback_head, feedback_text FROM feedback, uuser, nutritionprogram WHERE '
+                   'uuser.uuser_id = feedback.uuser_id AND feedback.nutrition_id = nutritionprogram.nutrition_id AND '
+                   'feedback.nutrition_id = %s', (nutrition_id, ))
+    fb = cursor.fetchall()
+    np_desc = records[3].split('.')
+    nutr_recept = records[5].split('.')
     cursor.close()
     conn.close()
-    return render_template('nutrition_program.html', title='Nutrition Program', records=records)
+    return render_template('nutrition_program.html', title='Nutrition Program', records=records, np_desc=np_desc, nutr_recept=nutr_recept, fb=fb)
 
 
 @app.route('/set_prog/<nutrition_id>')
 @login_required
 def set_prog(nutrition_id):
+    now = datetime.datetime.now()
     conn = try_connect()
     cursor = conn.cursor()
-    cursor.execute('UPDATE uuser SET nutrition_id = %s WHERE uuser_id = %s', (nutrition_id, current_user.id))
+    cursor.execute('UPDATE uuser SET nutrition_id = %s, nutrition_start = %s WHERE uuser_id = %s', (nutrition_id, now, current_user.id))
     conn.commit()
     cursor.close()
     conn.close()
@@ -211,6 +254,11 @@ def test(test_id):
     cursor.close()
     conn.close()
     return render_template('Test.html', title='Your Test', len_ans=list1)
+
+
+@app.route('/404')
+def error_404():
+    return render_template('error.html')
 
 
 if __name__ == '__main__':

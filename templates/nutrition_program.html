@@ -9,7 +9,8 @@
 
 {% block content %}
     <br><br><br><br><br>
-    <div class="container" style="border: 1rem double  #92c8f5; border-radius: 3.125rem;  background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);">
+    <div class="container"
+         style="border: 1rem double  #92c8f5; border-radius: 3.125rem;  background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);">
         <div class="container my-5 z-depth-1">
             <section class="dark-grey-text">
                 <div class="row pr-lg-5">
@@ -79,11 +80,23 @@
             <div class="row d-flex justify-content-center">
                 <!--Grid column-->
                 <div class="col-lg-7">
-                    <p>Тут по задумке должно быть описание программы в примере с рецептами. Но до сдачи курсача остался час, а блок текста на функционал никак не повлияет. Так что, давайте представим, что он таки есть тут. Спасибо за понимание.</p>
+                    <p>{{ np_desc[0] }}</p>
+                    {% for post in np_desc %}
+                        <p>{{ post }}</p>
+                    {% endfor %}
+                    <p>Тут по задумке должно быть описание программы в примере с рецептами. Но до сдачи курсача остался
+                        час, а блок текста на функционал никак не повлияет. Так что, давайте представим, что он таки
+                        есть тут. Спасибо за понимание.</p>
                 </div>
             </div>
         </section>
     </div>
 
     <br><br><br><br><br>
+    {% if current_user.np == records[1] %}
+        <span><a href="{{ url_for('add_feedback', nutrition_id=records[1]) }}">Leave feedback</a></span>
+    {% endif %}
+    {% for row in fb %}
+        <p>{{ row[0] }} {{ row[1] }} {{ row[2] }} {{ row[3] }} </p>
+    {% endfor %}
 {% endblock %}

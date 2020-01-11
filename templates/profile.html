@@ -8,17 +8,14 @@
 
 {% block content %}
     <br><br><br><br><br>
-    <div class="container emp-profile" style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
+    <div class="container emp-profile"
+         style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="/static/images/{{rand_num}}.png"
+                        <img src="/static/images/{{ rand_num }}.png"
                              alt=""/>
-{#                        <div class="file btn btn-lg btn-primary">#}
-{#                            Change Photo#}
-{#                            <input type="file" name="file"/>#}
-{#                        </div>#}
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -27,7 +24,14 @@
                             {{ records[1] }}
                         </h5>
                         <h6>Стремящийся к изменениям</h6>
-                        <p class="proile-rating">Test program : <span>{{ records[10] }}</span></p>
+                        {% if flag_no_prog %}
+                            <p class="proile-rating">Test program : <span>{{ records[10] }}</span></p>
+                        {% else %}
+                            <p class="proile-rating">Test program : <span><a
+                                    href="{{ url_for('nutrition_program', nutrition_id=records[11]) }}">{{ records[10] }}</a></span>
+                            </p>
+                            <p class="proile-rating">Program using time(days) : <span>{{ days }}</span></p>
+                        {% endif %}
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -41,13 +45,15 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ url_for('edit_profile') }}"><input type="button" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/></a>
+                    <a href="{{ url_for('edit_profile') }}"><input type="button" class="profile-edit-btn"
+                                                                   name="btnAddMore" value="Edit Profile"/></a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
                         <p>FOR RESULTS LINK</p>
+                        <hr>
                         <a href="{{ url_for('test', test_id=1) }}">Test</a><br/>
                         <a href="{{ url_for('logout') }}">Go out and just do it</a><br/>
                         <p>SKILLS</p>

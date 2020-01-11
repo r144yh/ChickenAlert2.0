@@ -5,23 +5,67 @@
     {{ super() }}
     <link rel="stylesheet"
           href="/static/styles/profile.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
     <br><br><br><br><br>
-    <div class="col align-self-center">
-        <div class="container emp-profile"
-             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-            <div align="center">
-                <div class="profile-head">
-                    <h1>Edit profile</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="col align-self-center">
+            <div class="container emp-profile"
+                 style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
+                <div align="center">
+                    <div class="profile-head">
+                        <h1>Edit profile</h1>
+                        <hr>
+                    </div>
                 </div>
-            </div>
-            <div class="col align-items-center">
-                <div class="row-md-4">
-                    {{ wtf.quick_form(form) }}
+                <div class="col align-items-center">
+                    <div class="row-md-4">
+                        <div class="form-group">
+                            {{ form.target_weight.label }}
+                            {{ form.target_weight(type="number", class="form-control", placeholder="Целевой вес") }}
+                            {% for error in form.target_weight.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.current_weight.label }}
+                            {{ form.current_weight(type="number", class="form-control", placeholder="Текущий вес") }}
+                            {% for error in form.current_weight.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.calories.label }}
+                            {{ form.calories(type="number", class="form-control", placeholder="Кол-во каллорий в день") }}
+                            {% for error in form.calories.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.height.label }}
+                            {{ form.height(type="number", class="form-control", placeholder="Рост") }}
+                            {% for error in form.height.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.age.label }}
+                            {{ form.age(type="number", class="form-control", placeholder="Возраст") }}
+                            {% for error in form.age.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                        <p><input id="submit" name="submit" type="submit" class="submit" value="Submit" style="border:none; border-radius:1.5rem;
+                                    padding: 1%; width: 20%; cursor: pointer; background: linear-gradient(to right, #e5b4cc 0%, #afe2ff 71%, #e5b1a0 100%); color: #9f5a6c;"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 {% endblock %}

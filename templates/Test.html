@@ -4,142 +4,111 @@
     {{ super() }}
     <link rel="stylesheet"
           href="/static/styles/test.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
     <br> <br> <br>
-    <div class="jumbotron card card-image"
-         style="background-image: linear-gradient(to right, #e5b1a0 0%, #ccfffd 61%, #e5b1a0 100%);">
-        <div class=" view overlay rounded-top">
-            <h1 class="card-title h1-responsive pt-3 mb-5 font-bold" align="center"><strong>It's time to learn more
-                about
-                yourself</strong></h1>
-            <img src="/static/images/skier_mountains_snow_121238_3840x2160.jpg"
-                 class="img-fluid"
-                 alt="Sample image">
-            <a href="#">
-                <div class="mask rgba-white-slight"></div>
-            </a>
-        </div>
-        <div class="text-white text-center py-5 px-4">
-            <div>
-                <h1 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Help us make the selection more
-                    accurate</strong></h1>
-                <h3 class="mx-5 mb-5">Just eat it</h3>
-                <a style=" text-decoration: none;
-                                   outline: none;
-                                   display: inline-block;
-                                   color: white;
-                                   padding: 20px 30px;
-                                   margin: 10px 20px;
-                                   border-radius: 10px;
-                                   font-family: 'Montserrat', sans-serif;
-                                   text-transform: uppercase;
-                                   letter-spacing: 2px;
-                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
-                                   background-size: 200% auto;
-                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
-                                   transition: .5s;"
-                   href="#que1" role="button">Pass Test</a>
-            </div>
-        </div>
-    </div>
-    <br> <br> <br> <br> <br> <br>
     <div class="jumbotron card card-image" id="que1"
-         style="background-image: linear-gradient(to right, #e5b1a0 0%, #5d3368 61%, #e5b1a0 100%);">
+         style="background-image: linear-gradient(to right, #e5b1a0 0%, #5d3368 61%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
+        <hr>
         <div class="text-white text-center py-5 px-4">
             <div>
                 <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>This is a small step to a big
                     victory</strong></h2>
-                <p class="mx-5 mb-5">[[ Passing the test is only a recommendation and does not force you to follow the
-                    result ]]</p>
+                <p class="mx-5 mb-5">[[ Прохождение теста является только рекомендацией и не заставляет вас следовать
+                    результату ]]</p>
 
             </div>
         </div>
-    </div>
+        <hr>
+        <hr>
 
-    <script>
-        var sum = 0;
 
-        function fun1(name) {
-            var rad = document.getElementsByName(name);
-            for (var i = 0; i < rad.length; i++) {
-                if (rad[i].checked) {
-                    var res = rad[i].value;
-                    sum += Number(res);
-                    {#alert('Выбран ' + i + ' radiobutton ' + res + ' ' + sum);#}
+        <script>
+            var sum = 0;
+
+            function fun1(name) {
+                var rad = document.getElementsByName(name);
+                for (var i = 0; i < rad.length; i++) {
+                    if (rad[i].checked) {
+                        var res = rad[i].value;
+                        sum += Number(res);
+                        {#alert('Выбран ' + i + ' radiobutton ' + res + ' ' + sum);#}
+                    }
                 }
             }
-        }
 
-        function fun2() {
+            function fun2() {
 
-            if (sum > 0) {
-                if (sum <= 10) {
-                    sum = 10;
-                } else if (sum > 10 && sum <= 20) {
-                    sum = 20;
-                } else if (sum > 20 && sum <= 30) {
-                    sum = 30;
-                } else if (sum > 30 && sum <= 40) {
-                    sum = 40;
-                } else if (sum > 40 && sum <= 50) {
-                    sum = 50;
-                } else if (sum > 50 && sum <= 60) {
-                    sum = 60;
+                if (sum > 0) {
+                    if (sum <= 10) {
+                        sum = 10;
+                    } else if (sum > 10 && sum <= 20) {
+                        sum = 20;
+                    } else if (sum > 20 && sum <= 30) {
+                        sum = 30;
+                    } else if (sum > 30 && sum <= 40) {
+                        sum = 40;
+                    } else if (sum > 40 && sum <= 50) {
+                        sum = 50;
+                    } else if (sum > 50 && sum <= 60) {
+                        sum = 60;
+                    } else {
+                        sum = 60;
+                    }
+
+                    switch (sum) {
+                        case 10:
+                            document.location.href = "{{ url_for('set_prog', nutrition_id=10) }}";
+                            break;
+                        case 20:
+                            document.location.href = "{{ url_for('set_prog', nutrition_id=20) }}";
+                            break;
+                        case 30:
+                            document.location.href = "{{ url_for('set_prog', nutrition_id=30) }}";
+                            break;
+                        case 40:
+                            document.location.href = "{{ url_for('set_prog', nutrition_id=40) }}";
+                            break;
+                        case 50:
+                            document.location.href = "{{ url_for('set_prog', nutrition_id=50) }}";
+                            break;
+                        case 60:
+                            document.location.href = "{{ url_for('set_prog', nutrition_id=60) }}";
+                            break;
+                    }
                 } else {
-                    sum = 60;
+                    alert("Something was wrong. Please pass the test again.")
                 }
-
-                switch (sum) {
-                    case 10:
-                        document.location.href = "{{ url_for('set_prog', nutrition_id=10) }}";
-                        break;
-                    case 20:
-                        document.location.href = "{{ url_for('set_prog', nutrition_id=20) }}";
-                        break;
-                    case 30:
-                        document.location.href = "{{ url_for('set_prog', nutrition_id=30) }}";
-                        break;
-                    case 40:
-                        document.location.href = "{{ url_for('set_prog', nutrition_id=40) }}";
-                        break;
-                    case 50:
-                        document.location.href = "{{ url_for('set_prog', nutrition_id=50) }}";
-                        break;
-                    case 60:
-                        document.location.href = "{{ url_for('set_prog', nutrition_id=60) }}";
-                        break;
-                }
-            } else {
-                alert("Something was wrong. Please pass the test again.")
             }
-        }
 
-
-        {#function on() {#}
-        {#    document.getElementById("overlay").style.display = "block";}#}
-        {##}
-        {#function off() {#}
-        {#    document.getElementById("overlay").style.display = "none";}#}
-    </script>
-    {% for row in len_ans %}
-        <div class="container my-5 py-5 z-depth-1" style="background-color: #F5E2CD; border-radius: 30px;">
-            <section class="text-center px-md-5 mx-md-5 dark-grey-text">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-7">
-                        <h4>{{ row[0] }}</h4>
-                        {% for ans in row[1] %}
-                            <p><input type="radio" name="{{ row[2] }}" value="{{ ans[1] }}"
-                                      onclick="this.disabled = true; fun1({{ row[2] }})"> {{ ans[0] }} </p>
-                        {% endfor %}
+            {#function on() {#}
+            {#    document.getElementById("overlay").style.display = "block";}#}
+            {##}
+            {#function off() {#}
+            {#    document.getElementById("overlay").style.display = "none";}#}
+        </script>
+        {% for row in len_ans %}
+            <div class="container my-5 py-5 z-depth-1" style="background-color: #F5E2CD; border-radius: 30px;">
+                <section class="text-center px-md-5 mx-md-5 dark-grey-text">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-7">
+                            <h4>{{ row[0] }}</h4>
+                            <hr>
+                            {% for ans in row[1] %}
+                                <div class="container2">
+                                <span><input class="checkmark" type="radio" name="{{ row[2] }}" value="{{ ans[1] }}"
+                                          onclick="this.disabled = true; fun1({{ row[2] }})"> {{ ans[0] }} </span>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
-    {% endfor %}
-    <div style="padding:20px" align="center">
-        <button type="button" onclick="fun2();" style=" text-decoration: none;
+                </section>
+            </div>
+        {% endfor %}
+        <div style="padding:20px" align="center">
+            <button type="button" onclick="fun2();" style=" text-decoration: none;
                                    outline: none;
                                    display: inline-block;
                                    color: white;
@@ -153,8 +122,9 @@
                                    background-size: 200% auto;
                                    box-shadow: 0 0 20px rgba(0,0,0,.1);
                                    transition: .5s;">
-            Отправить
-        </button>
+                Отправить
+            </button>
+        </div>
     </div>
     {#    <div id="overlay" onclick="off()">#}
     {#        <div id="text">#}

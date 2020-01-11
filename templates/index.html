@@ -181,7 +181,7 @@
                                 <div class="item-body">
                                     <h3>Sugar Detox</h3>
                                     <ul class="row align-items-start" style="list-style-type: circle;">
-                                        <li>Easy-to-cook meals & </li>
+                                        <li>Easy-to-cook meals &</li>
                                         <li>Digital shopping list</li>
                                         <li>Proven results</li>
                                     </ul>
@@ -199,7 +199,7 @@
                                 <div class="item-body">
                                     <h3>Vegan for a week</h3>
                                     <ul class="row align-items-start" style="list-style-type: circle;">
-                                        <li>Weekly meal plans & </li>
+                                        <li>Weekly meal plans &</li>
                                         <li>30 min or less</li>
                                         <li>Daily health feedback</li>
                                     </ul>
@@ -295,6 +295,9 @@
                     </div>
                 </div>
             </section>
+            {% for row in records %}
+                <p>{{ row[0] }} {{ row[1] }} {{ row[2] }} {{ row[3] }} </p>
+            {% endfor %}
         </div>
     </main>
 {% endblock %}
