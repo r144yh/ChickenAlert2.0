@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask import render_template, flash, redirect, url_for, session
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from config import Config, try_connect
-from forms import LoginForm, RegistrationForm, EditProfileForm, FeedbackForm
+from forms import LoginForm, RegistrationForm, EditProfileForm, FeedbackForm, TestForm
 from flask_bootstrap import Bootstrap
 import psycopg2
 import json
@@ -199,10 +199,14 @@ def nutrition_program(nutrition_id):
                    'feedback.nutrition_id = %s', (nutrition_id, ))
     fb = cursor.fetchall()
     np_desc = records[3].split('.')
-    nutr_recept = records[5].split('.')
+    nutr_breakfast = records[5].split('.')
+    nutr_dinner = records[6].split('.')
+    nutr_supper = records[7].split('.')
+    nutr_snack = records[8].split('.')
     cursor.close()
     conn.close()
-    return render_template('nutrition_program.html', title='Nutrition Program', records=records, np_desc=np_desc, nutr_recept=nutr_recept, fb=fb)
+    return render_template('nutrition_program.html', title='Nutrition Program', records=records, np_desc=np_desc,
+                           nutr_breakfast=nutr_breakfast, nutr_dinner=nutr_dinner, nutr_supper=nutr_supper, nutr_snack=nutr_snack, fb=fb)
 
 
 @app.route('/set_prog/<nutrition_id>')
@@ -227,20 +231,25 @@ def sport_program(sport_id):
                    'WHERE sport_id = %s',
                    (sport_id,))
     records = cursor.fetchone()
-    sp_desc = records[3].split('.')
+    sp_header = records[3].split('.')
+    sp_myths_header = records[4].split('.')
+    sp_myths = records[5].split('.')
     pl_name = records[4].split('.')
     pl_desc = records[5].split('.')
     cursor.close()
     conn.close()
-    return render_template('sport_program.html', title='Sport Program', records=records, sp_desc=sp_desc, pl_name=pl_name, pl_desc=pl_desc)
+    major2 = True
+    return render_template('sport_program.html', title='Sport Program', records=records, sp_header=sp_header,
+                           sp_myths_header=sp_myths_header, sp_myths=sp_myths, pl_name=pl_name, pl_desc=pl_desc,
+                           major2=major2)
 
 
 @app.route('/test/<test_id>', methods=["GET", "POST"])
 def test(test_id):
+    form = TestForm()
     conn = try_connect()
     cursor = conn.cursor()
     list1 = []
-    # cursor.execute('SELECT count(distinct que_id) FROM question WHERE test_id = %s', (test_id, ))
     cursor.execute('SELECT que_id, que_text FROM question WHERE test_id = %s', (test_id,))
     kek = cursor.fetchall()
     for row in kek:
@@ -253,11 +262,9 @@ def test(test_id):
             list.append(ans)
         list1.append([row[1], list, row[0]])
 
-    # cursor.execute('SELECT * FROM test NATURAL JOIN question NATURAL JOIN answer WHERE test_id = %s', (test_id,))
-    # test = cursor.fetchall()
     cursor.close()
     conn.close()
-    return render_template('Test.html', title='Your Test', len_ans=list1)
+    return render_template('Test.html', title='Your Test', len_ans=list1, form=form)
 
 
 @app.route('/404')

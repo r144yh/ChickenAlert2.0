@@ -3,7 +3,7 @@
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet"
-          href="/static/styles/inMain.css">
+          href="/static/styles/mainPageIndex.css">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
 {% endblock %}
 
@@ -26,6 +26,10 @@
          style="background-image: linear-gradient(to right, #5d3368 0%, #e59090 61%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
         <h3>Just Eat It</h3>
         <hr>
+        <div>
+            <h5 style="color: #cecce2;">Всегда мечтали иметь подтянутое тело, но</h5>
+        </div>
+        <hr>
         <div><br>
             <h5 style="color: #cecce2;">«Тому, кто спит, не достается ничего, кроме грез» — Серена Уильямс</h5><br>
             <h5 id="demo"><button onclick="typeWriter()">Click me</button></h5><br>
@@ -44,13 +48,11 @@
             <hr>
             <h6><s>Всё ещё не с нами?</s></h6>
         {% else %}<br>
-            <div><a href="{{ url_for('login') }}" role="button"
+            <h6>Всё ещё не с нами?</h6><br>
+            <div><a href="{{ url_for('registration') }}" role="button"
                     style="border:none; border-radius:1.5rem;
-                                    padding: 1%; width: 20%; cursor: pointer; background: linear-gradient(to right, #80d8f5 0%, #92c8f5 71%, #5fabf5 100%); color: #f9f6ff;">Log
-                in</a></div><br>
-            <hr>
-            <h6>Всё ещё не с нами?</h6>
-        {% endif %}<br>
+                                    padding: 1%; width: 20%; cursor: pointer; background: linear-gradient(to right, #80d8f5 0%, #92c8f5 71%, #5fabf5 100%); color: #f9f6ff;">Registration</a></div>
+        {% endif %}
     </div><br>
 
     <div class="container-fluid">

@@ -6,20 +6,6 @@
 
 
 {% block body_attribs %}
-    {#    style="background-color: #5371B3;"#}
-    {#    style="background-image:  url('https://images.wallpaperscraft.ru/image/voda_prozrachnyj_poverhnost_149194_3840x2400.jpg'); "#}
-    {#    style="background: linear-gradient(100deg,#5d3368,#b55b53);" class="text-center"#}
-    {#   style="background-image:#}
-    {#linear-gradient(#98B7AF 1px, transparent 1px),#}
-    {#linear-gradient(90deg, #98B7AF 1px, transparent 1px);#}
-    {#background-size: 2em 2em;#}
-    {#background-color: #b55b53; "#}
-    {#    style="background-color: b55b53;#}
-    {#background-image:#}
-    {#linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 75%, #cccccc 75%),#}
-    {#linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 75%, #cccccc 75%);#}
-    {#background-position: 0 0, 8px 8px;#}
-    {#background-size: 16px 16px;"#}
     style="background-color: #b55b53;
     background-image:
     linear-gradient(transparent 99px, white 99px),
@@ -31,7 +17,8 @@
 
 {% block navbar %}
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: #b55b53; opacity: 0.85" >
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar"
+         style="background-color: #b55b53; opacity: 0.85">
 
         <!-- Navbar brand -->
         <a class="navbar-brand" href="{{ url_for('index') }}">
@@ -52,26 +39,43 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto smooth-scroll">
                 {% if major %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#nutrition">Health</a>
-                    </li>
-{#                    <li class="nav-item ">#}
-{#                        <a class="nav-link" href="#sport">Sport</a>#}
-{#                    </li>#}
                     <li class="nav-item active">
-                        <a class="nav-link active" href="#reviews">Reviews</a>
+                        <a class="nav-link active" href="#nutrition">Health</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">Reviews</a>
+                    </li>
+                {% endif %}
+                {% if major2 %}
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#Myths">Myths</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Advantages">Advantages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Place">Place</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Trainings">Trainings</a>
                     </li>
                 {% endif %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="{{ url_for('index') }}" id="navbarDropdownMenuLink"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nutrition program</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=10) }}">Высокопротеиновое питание</a>
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=20) }}">3-недельная диета</a>
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=30) }}">Пища для силы</a>
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=40) }}">Классическая</a>
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=50) }}">Сахарный детокс</a>
-                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=60) }}">Веган на неделю</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=10) }}">Высокопротеиновое
+                            питание</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=20) }}">3-недельная
+                            диета</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=30) }}">Пища для
+                            силы</a>
+                        <a class="dropdown-item"
+                           href="{{ url_for('nutrition_program', nutrition_id=40) }}">Классическая</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=50) }}">Сахарный
+                            детокс</a>
+                        <a class="dropdown-item" href="{{ url_for('nutrition_program', nutrition_id=60) }}">Веган на
+                            неделю</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

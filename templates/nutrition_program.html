@@ -3,7 +3,7 @@
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet"
-          href="/static/styles/nutrPr.css">
+          href="/static/styles/nutrProgram.css">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
 {% endblock %}
 
@@ -88,98 +88,61 @@
     <div class="container-fluid" id="read" style="font-family: 'Inconsolata', monospace;">
 
         <div id="London" class="tabcontent" style="color: #b55b53">
-            <h3 align="left">{{ nutr_recept[0] }}</h3>
-            <hr>
-            <p align="left">{{ nutr_recept[1] }}</p>
+            <h3 align="left">{{ nutr_breakfast[0] }}</h3>
+            <p align="left">{{ nutr_breakfast[1] }}</p>
             <hr>
             <h4 align="left">Список ингредиентов</h4>
-            <ul align="left">
-                <li>{{ nutr_recept[2] }}</li>
-                <li>{{ nutr_recept[3] }}</li>
-                <li>{{ nutr_recept[4] }}</li>
-                <li>{{ nutr_recept[5] }}</li>
-                <li>{{ nutr_recept[6] }}</li>
-                <li>{{ nutr_recept[7] }}</li>
-                <li>{{ nutr_recept[8] }}</li>
-            </ul>
+            <p align="left">{{ nutr_breakfast[2] }}</p>
             <hr>
-            <h6>ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h6>
-            <ul style="list-style-type: none;">
-                <li>{{ nutr_recept[9] }}</li>
-                <li>{{ nutr_recept[10] }}</li>
-                <li>{{ nutr_recept[11] }}</li>
+            <h4 align="left">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h4>
+            <ul align="left" style="list-style-type:none">
+                <li>{{ nutr_breakfast[3] }}</li>
+                <li>{{ nutr_breakfast[4] }}</li>
             </ul>
         </div>
 
-        <div id="Paris" class="tabcontent">
-            <h3 align="left">{{ nutr_recept[12] }}</h3>
-            <hr>
-            <p align="left">{{ nutr_recept[13] }}</p>
+        <div id="Paris" class="tabcontent" style="color: #38707e">
+            <h3 align="left">{{ nutr_dinner[0] }}</h3>
+            <p align="left">{{ nutr_dinner[1] }}</p>
             <hr>
             <h4 align="left">Список ингредиентов</h4>
-            <ul align="left">
-                <li>{{ nutr_recept[14] }}</li>
-                <li>{{ nutr_recept[15] }}</li>
-                <li>{{ nutr_recept[16] }}</li>
-                <li>{{ nutr_recept[17] }}</li>
-                <li>{{ nutr_recept[18] }}</li>
-                <li>{{ nutr_recept[19] }}</li>
-                <li>{{ nutr_recept[20] }}</li>
-            </ul>
+            <p align="left">{{ nutr_dinner[2] }}</p>
             <hr>
-            <h6 align="center">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h6>
-            <ul style="list-style-type: none;" align="center">
-                <li>{{ nutr_recept[21] }}</li>
-                <li>{{ nutr_recept[22] }}</li>
-                <li>{{ nutr_recept[23] }}</li>
-                <li>{{ nutr_recept[24] }}</li>
-                <li>{{ nutr_recept[25] }}</li>
-                <li>{{ nutr_recept[26] }}</li>
+            <h4 align="left">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h4>
+            <ul align="left" style="list-style-type:none">
+                <li>{{ nutr_dinner[3] }}</li>
+                <li>{{ nutr_dinner[4] }}</li>
+                <li>{{ nutr_dinner[5] }}</li>
             </ul>
         </div>
 
-        <div id="Tokyo" class="tabcontent">
-            <h3 align="left">{{ nutr_recept[27] }}</h3>
-            <hr>
-            <p align="left">{{ nutr_recept[28] }}</p>
+        <div id="Tokyo" class="tabcontent" style="color: rgb(71, 41, 97)">
+            <h3 align="left">{{ nutr_supper[0] }}</h3>
+            <p align="left">{{ nutr_supper[1] }}</p>
             <hr>
             <h4 align="left">Список ингредиентов</h4>
-            <ul align="left">
-                <li>{{ nutr_recept[29] }}</li>
-                <li>{{ nutr_recept[30] }}</li>
-                <li>{{ nutr_recept[31] }}</li>
-                <li>{{ nutr_recept[32] }}</li>
-                <li>{{ nutr_recept[33] }}</li>
-                <li>{{ nutr_recept[34] }}</li>
-            </ul>
+            <p align="left">{{ nutr_supper[2] }}</p>
             <hr>
-            <h6 align="center">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h6>
-            <ul style="list-style-type: none;" align="center">
-                <li>{{ nutr_recept[35] }}</li>
-                <li>{{ nutr_recept[36] }}</li>
-                <li>{{ nutr_recept[37] }}</li>
-                <li>{{ nutr_recept[38] }}</li>
+            <h4 align="left">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h4>
+            <ul align="left" style="list-style-type:none">
+                <li>{{ nutr_supper[3] }}</li>
+                <li>{{ nutr_supper[4] }}</li>
+                <li>{{ nutr_supper[5] }}</li>
             </ul>
         </div>
 
         <div id="Oslo" class="tabcontent" style="color:yellow;">
-            <h3 align="left">{{ nutr_recept[39] }}</h3>
-            <hr>
-            <p align="left">{{ nutr_recept[40] }}</p>
+            <h3 align="left">{{ nutr_snack[0] }}</h3>
+            <p align="left">{{ nutr_snack[1] }}</p>
             <hr>
             <h4 align="left">Список ингредиентов</h4>
-            <ul align="left">
-                <li>{{ nutr_recept[41] }}</li>
-                <li>{{ nutr_recept[42] }}</li>
-                <li>{{ nutr_recept[43] }}</li>
-                <li>{{ nutr_recept[44] }}</li>
-            </ul>
+            <p align="left">{{ nutr_snack[2] }}</p>
             <hr>
-            <h6 align="center">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h6>
-            <ul style="list-style-type: none;" align="center">
-                <li>{{ nutr_recept[45] }}</li>
-                <li>{{ nutr_recept[46] }}</li>
-                <li>{{ nutr_recept[47] }}</li>
+            <h4 align="left">ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ</h4>
+            <ul align="left" style="list-style-type:none">
+                <li>{{ nutr_snack[3] }}</li>
+                <li>{{ nutr_snack[4] }}</li>
+                <li>{{ nutr_snack[5] }}</li>
             </ul>
         </div>
 

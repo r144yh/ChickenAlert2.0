@@ -3,35 +3,27 @@
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet"
-          href="/static/styles/profile.css">
+          href="/static/styles/userProfile.css">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
     <br><br>
+    <!--Главный блок мифов-->
     <div class="container emp-profile"
          style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
-        <section class="dark-grey-text">
+        <section class="dark-grey-text" id="Myths">
             <h3 class="text-center font-weight-bold mb-4 pb-2">{{ records[2] }}</h3>
             <hr>
             <p class="text-center text-muted w-responsive mx-auto mb-5">
-            <h3>{{ sp_desc[1] }}</h3></p>
-            <h5>{{ sp_desc[0] }}{{ sp_desc[2] }}</h5>
-            <!-- Grid row -->
+            <h3>{{ sp_header[0] }}</h3></p>
+            <h5>{{ sp_header[1] }}</h5>
             <div class="row">
-
-                <!-- Grid column -->
                 <div class="col-lg-5 mb-lg-0 mb-5">
-
                     <img src="/static/images/braden-collum-9HI8UJMSdZA-unsplash.jpg"
                          class="img-fluid rounded z-depth-1" alt="Sample project image">
-
                 </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
                 <div class="col-lg-7">
-
                     <ul class="list-unstyled fa-ul mb-0">
                         <li class="d-flex justify-content-center pl-4">
                             <span class="fa-li"><i class="fas fa-book fa-2x cyan-text"></i></span>
@@ -40,21 +32,21 @@
                                 <h5 class="font-weight-bold mb-3">Разрушители мифов</h5>
                                 <hr>
                                 <ul>
-                                    <h6>{{ sp_desc[3] }}</h6>
+                                    <h6>{{ sp_myths_header[0] }}</h6>
                                     <hr>
-                                    <li class="text-muted">{{ sp_desc[4] }}</li>
+                                    <li class="text-muted">{{ sp_myths[0] }}</li>
                                     <hr>
-                                    <h6>{{ sp_desc[5] }}</h6>
+                                    <h6>{{ sp_myths_header[1] }}</h6>
                                     <hr>
-                                    <li class="text-muted">{{ sp_desc[6] }}</li>
+                                    <li class="text-muted">{{ sp_myths[1] }}</li>
                                     <hr>
-                                    <h6>{{ sp_desc[7] }}</h6>
+                                    <h6>{{ sp_myths_header[2] }}</h6>
                                     <hr>
-                                    <li class="text-muted">{{ sp_desc[8] }}</li>
+                                    <li class="text-muted">{{ sp_myths[2] }}</li>
                                     <hr>
-                                    <h6>{{ sp_desc[9] }}</h6>
+                                    <h6>{{ sp_myths_header[3] }}</h6>
                                     <hr>
-                                    <li class="text-muted">{{ sp_desc[10] }}</li>
+                                    <li class="text-muted">{{ sp_myths[3] }}</li>
                                     <hr>
                                 </ul>
                             </div>
@@ -65,48 +57,49 @@
             <hr class="my-5">
         </section>
     </div>
-    <div>
 
+    <!--Второй блок-->
+    <div>
         <div class="container emp-profile"
-             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
+             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;" id="Advantages">
             <section class="text-center px-md-5 mx-md-5 dark-grey-text">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-7">
-                        <h3>{{ sp_desc[11] }}</h3>
+                        <h3>{{ sp_header[2] }}</h3>
                         <hr>
-                        <h5>{{ sp_desc[12] }}</h5>
+                        <h5>{{ sp_header[3] }}</h5>
                         <hr>
                         <h5 class="font-weight-bold mb-3"></h5>
                         <hr>
                         <br>
                         <ul style="list-style-type: none;" align="center">
-                            <h6>{{ sp_desc[13] }}</h6>
+                            <h6>{{ sp_myths_header[4] }}</h6>
                             <hr>
-                            <li class="text-muted">{{ sp_desc[14] }}. {{ sp_desc[15] }}</li>
+                            <li class="text-muted">{{ sp_myths[4] }}</li>
                             <hr>
-                            <h6>{{ sp_desc[16] }}</h6>
+                            <h6>{{ sp_myths_header[5] }}</h6>
                             <hr>
-                            <li class="text-muted">{{ sp_desc[17] }}. {{ sp_desc[18] }}</li>
+                            <li class="text-muted">{{ sp_myths[5] }}</li>
                             <hr>
-                            <h6>{{ sp_desc[19] }}</h6>
+                            <h6>{{ sp_myths_header[6] }}</h6>
                             <hr>
-                            <li class="text-muted">{{ sp_desc[20] }}. {{ sp_desc[21] }}</li>
+                            <li class="text-muted">{{ sp_myths[6] }}</li>
                             <hr>
-                            <h6>{{ sp_desc[22] }}</h6>
+                            <h6>{{ sp_myths_header[7] }}</h6>
                             <hr>
-                            <li class="text-muted">{{ sp_desc[23] }}. {{ sp_desc[24] }}. {{ sp_desc[25] }}</li>
+                            <li class="text-muted">{{ sp_myths[7] }}</li>
                             <hr>
                         </ul>
                     </div>
                 </div>
             </section>
         </div>
-
-
+        <!--Блок мест-->
         <section class="dark-grey-text text-center" id="placetren">
             <div class="container emp-profile"
-                 style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-                <h3>Our best place</h3><hr>
+                 style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);" id="Place">
+                <h3>Our best place</h3>
+                <hr>
                 <p class="text-muted w-responsive mx-auto mb-5">Начать заниматься проще, чем вы думаете</p>
                 <div class="row">
 

@@ -67,3 +67,5 @@ class FeedbackForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
+class TestForm(FlaskForm):
+    result = RadioField('Ответ', choices=[('', '')])

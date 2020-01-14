@@ -23,8 +23,6 @@
         </div>
         <hr>
         <hr>
-
-
         <script>
             var sum = 0;
 
@@ -82,12 +80,6 @@
                     alert("Something was wrong. Please pass the test again.")
                 }
             }
-
-            {#function on() {#}
-            {#    document.getElementById("overlay").style.display = "block";}#}
-            {##}
-            {#function off() {#}
-            {#    document.getElementById("overlay").style.display = "none";}#}
         </script>
         {% for row in len_ans %}
             <div class="container my-5 py-5 z-depth-1" style="background-color: #F5E2CD; border-radius: 30px;">
@@ -97,10 +89,13 @@
                             <h4>{{ row[0] }}</h4>
                             <hr>
                             {% for ans in row[1] %}
-                                <div class="container2">
-                                <span><input class="checkmark" type="radio" name="{{ row[2] }}" value="{{ ans[1] }}"
-                                          onclick="this.disabled = true; fun1({{ row[2] }})"> {{ ans[0] }} </span>
+{#                                <div class="container2">#}
+                                <div class="form-group">
+                                        {{ form.result(type="radio", class="form-control", style="list-style-type: none;", name="{{ row[2] }}", value="{{ ans[1] }}") }}
                                 </div>
+{#                                <span><input class="checkmark" type="radio" name="{{ row[2] }}" value="{{ ans[1] }}"#}
+{#                                          onclick="this.disabled = true; fun1({{ row[2] }})"> {{ ans[0] }} </span>#}
+{#                                </div>#}
                             {% endfor %}
                         </div>
                     </div>
@@ -126,15 +121,4 @@
             </button>
         </div>
     </div>
-    {#    <div id="overlay" onclick="off()">#}
-    {#        <div id="text">#}
-    {#            <p align="center">Рекомендованная программа:</p>#}
-    {#            <p align="center">Тут будет название программы</p>#}
-    {#            <h4 align="center"><a href="">Изучить программу</a></h4>#}
-    {#        </div>#}
-    {#    </div>#}
-    {##}
-    {#    <div style="padding:20px" align="center">#}
-    {#        <button onclick="on(); fun2();">Отправить</button>#}
-    {#    </div>#}
 {% endblock %}
