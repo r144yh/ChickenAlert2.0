@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from psycopg2._psycopg import cursor
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, DecimalField, DateField, RadioField, \
     IntegerField, TextAreaField
-from wtforms.validators import DataRequired, Email, ValidationError, NumberRange
+from wtforms.validators import DataRequired, Email, ValidationError, NumberRange, InputRequired
 from config import try_connect
 
 
@@ -69,3 +69,37 @@ class FeedbackForm(FlaskForm):
 
 class TestForm(FlaskForm):
     result = RadioField('Ответ', choices=[('', '')])
+
+
+class TestForm(FlaskForm):
+    conn = try_connect()
+    cursor = conn.cursor()
+    cursor.execute('SELECT que_text FROM question ORDER BY que_id ASC ')
+    que = cursor.fetchall()
+    cursor.execute('SELECT answer_score, answer_text FROM answer  WHERE que_id = 1')
+    ans = cursor.fetchall()
+    result1 = RadioField(label=que[0][0], coerce=int, choices=ans, validators=[InputRequired()])
+    cursor.execute('SELECT answer_score, answer_text FROM answer  WHERE que_id = 2')
+    ans = cursor.fetchall()
+    result2 = RadioField(label=que[1][0], coerce=int, choices=ans, validators=[InputRequired()])
+    cursor.execute('SELECT answer_score, answer_text FROM answer  WHERE que_id = 3')
+    ans = cursor.fetchall()
+    result3 = RadioField(label=que[2][0], coerce=int, choices=ans, validators=[InputRequired()])
+    cursor.execute('SELECT answer_score, answer_text FROM answer  WHERE que_id = 4')
+    ans = cursor.fetchall()
+    result4 = RadioField(label=que[3][0], coerce=int, choices=ans, validators=[InputRequired()])
+    cursor.execute('SELECT answer_score, answer_text FROM answer  WHERE que_id = 5')
+    ans = cursor.fetchall()
+    result5 = RadioField(label=que[4][0], coerce=int, choices=ans, validators=[InputRequired()])
+    cursor.execute('SELECT answer_score, answer_text FROM answer  WHERE que_id = 6')
+    ans = cursor.fetchall()
+    result6 = RadioField(label=que[5][0], coerce=int, choices=ans, validators=[InputRequired()])
+    cursor.execute('SELECT answer_score, answer_text FROM answer  WHERE que_id = 7')
+    ans = cursor.fetchall()
+    result7 = RadioField(label=que[6][0], coerce=int, choices=ans, validators=[InputRequired()])
+    cursor.execute('SELECT answer_score, answer_text FROM answer  WHERE que_id = 8')
+    ans = cursor.fetchall()
+    result8 = RadioField(label=que[7][0], coerce=int, choices=ans, validators=[InputRequired()])
+    cursor.close()
+    conn.close()
+    submit = SubmitField('Submit')

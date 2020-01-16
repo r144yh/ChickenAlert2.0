@@ -227,44 +227,57 @@ def sport_program(sport_id):
     conn = try_connect()
     cursor = conn.cursor()
     cursor.execute('SELECT * '
-                   'FROM sportprogram NATURAL JOIN placetrena '
+                   'FROM sportprogram NATURAL JOIN placetrena NATURAL JOIN training_exercise '
                    'WHERE sport_id = %s',
                    (sport_id,))
     records = cursor.fetchone()
-    sp_header = records[3].split('.')
-    sp_myths_header = records[4].split('.')
-    sp_myths = records[5].split('.')
-    pl_name = records[4].split('.')
-    pl_desc = records[5].split('.')
+    sp_header = records[4].split('.')
+    sp_myths_header = records[5].split('.')
+    sp_myths = records[6].split('.')
+    pl_name = records[7].split('.')
+    pl_desc = records[8].split('.')
+    train_name = records[9].split('.')
+    train_desc = records[10].split('.')
     cursor.close()
     conn.close()
     major2 = True
     return render_template('sport_program.html', title='Sport Program', records=records, sp_header=sp_header,
                            sp_myths_header=sp_myths_header, sp_myths=sp_myths, pl_name=pl_name, pl_desc=pl_desc,
-                           major2=major2)
+                           train_name=train_name, train_desc=train_desc, major2=major2)
 
 
 @app.route('/test/<test_id>', methods=["GET", "POST"])
 def test(test_id):
     form = TestForm()
-    conn = try_connect()
-    cursor = conn.cursor()
-    list1 = []
-    cursor.execute('SELECT que_id, que_text FROM question WHERE test_id = %s', (test_id,))
-    kek = cursor.fetchall()
-    for row in kek:
-        cursor.execute('SELECT answer_text, answer_score '
-                       'FROM answer WHERE que_id = %s',
-                       (row[0],))
-        records = cursor.fetchall()
-        list = []
-        for ans in records:
-            list.append(ans)
-        list1.append([row[1], list, row[0]])
+    if form.validate_on_submit():
+        conn1 = try_connect()
+        cursor1 = conn1.cursor()
+        test_result = int(form.result1.data) + int(form.result2.data) + int(form.result3.data) + int(form.result4.data) + int(
+            form.result5.data) + int(form.result6.data) + int(form.result7.data) + int(form.result8.data)
+        print(test_result)
+        if test_result <= 10:
+            test_result = 10
+        elif 10 < test_result <= 20:
+            test_result = 20
+        elif 20 < test_result <= 30:
+            test_result = 30
+        elif 30 < test_result <= 40:
+            test_result = 40
+        elif 40 < test_result <= 50:
+            test_result = 50
+        elif 50 < test_result <= 60:
+            test_result = 60
+        else:
+            test_result = 60
+        now = datetime.datetime.now()
+        cursor1.execute('UPDATE uuser SET nutrition_id = %s, nutrition_start = %s WHERE uuser_id = %s',
+                        (test_result, now, current_user.id))
+        conn1.commit()
+        cursor1.close()
+        conn1.close()
+        return redirect(url_for('nutrition_program', nutrition_id=test_result))
 
-    cursor.close()
-    conn.close()
-    return render_template('Test.html', title='Your Test', len_ans=list1, form=form)
+    return render_template('Test.html', title='Your Test', form=form)
 
 
 @app.route('/404')

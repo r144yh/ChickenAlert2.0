@@ -7,7 +7,7 @@
     <database id="2" parent="1" name="ChickenAlert">
       <ObjectId>16394</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>988</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1051</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16395|16397|1
 sequence|table|16406|16410|1
@@ -24,6 +24,7 @@ sequence|table|16494|16496|3
 sequence|table|16508|16512|1
 sequence|table|16510|16512|4
 sequence|table|32915|16474|6
+sequence|table|32950|32947|1
 sequence|table|16591|16597|1
 sequence|table|16593|16597|4
 sequence|table|16595|16597|5
@@ -101,7 +102,7 @@ sequence|table|16595|16597|5
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>989</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1052</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="16" parent="2" name="btree">
@@ -296,7 +297,15 @@ sequence|table|16595|16597|5
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="40" parent="15" name="uuser_uuser_id_seq">
+    <sequence id="40" parent="15" name="training_exercise_training_id_seq">
+      <ObjectId>32950</ObjectId>
+      <StateNumber>1013</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="41" parent="15" name="uuser_uuser_id_seq">
       <ObjectId>16444</ObjectId>
       <StateNumber>573</StateNumber>
       <Owner>postgres</Owner>
@@ -304,52 +313,57 @@ sequence|table|16595|16597|5
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <table id="41" parent="15" name="answer">
+    <table id="42" parent="15" name="answer">
       <ObjectId>16512</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>573</StateNumber>
     </table>
-    <table id="42" parent="15" name="feedback">
+    <table id="43" parent="15" name="feedback">
       <ObjectId>16597</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>815</StateNumber>
     </table>
-    <table id="43" parent="15" name="nutritionprogram">
+    <table id="44" parent="15" name="nutritionprogram">
       <ObjectId>16429</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>933</StateNumber>
     </table>
-    <table id="44" parent="15" name="placetrena">
+    <table id="45" parent="15" name="placetrena">
       <ObjectId>16397</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>773</StateNumber>
+      <StateNumber>1036</StateNumber>
     </table>
-    <table id="45" parent="15" name="question">
+    <table id="46" parent="15" name="question">
       <ObjectId>16496</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>709</StateNumber>
     </table>
-    <table id="46" parent="15" name="sportprogram">
+    <table id="47" parent="15" name="sportprogram">
       <ObjectId>16410</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>976</StateNumber>
     </table>
-    <table id="47" parent="15" name="test">
+    <table id="48" parent="15" name="test">
       <ObjectId>16462</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>573</StateNumber>
     </table>
-    <table id="48" parent="15" name="test_result">
+    <table id="49" parent="15" name="test_result">
       <ObjectId>16474</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>921</StateNumber>
     </table>
-    <table id="49" parent="15" name="uuser">
+    <table id="50" parent="15" name="training_exercise">
+      <ObjectId>32947</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1039</StateNumber>
+    </table>
+    <table id="51" parent="15" name="uuser">
       <ObjectId>16448</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>803</StateNumber>
     </table>
-    <column id="50" parent="41" name="answer_id">
+    <column id="52" parent="42" name="answer_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -357,42 +371,42 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;answer_answer_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="51" parent="41" name="answer_text">
+    <column id="53" parent="42" name="answer_text">
       <Position>2</Position>
       <DataType>char(70)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>638</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="52" parent="41" name="answer_score">
+    <column id="54" parent="42" name="answer_score">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>639</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="53" parent="41" name="que_id">
+    <column id="55" parent="42" name="que_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>640</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="54" parent="41" name="answer_pkey">
+    <index id="56" parent="42" name="answer_pkey">
       <ObjectId>16517</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>answer_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="55" parent="41" name="answer_pkey">
+    <key id="57" parent="42" name="answer_pkey">
       <ObjectId>16518</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>answer_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>answer_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="56" parent="41" name="answer_que_id_fkey">
+    <foreign-key id="58" parent="42" name="answer_que_id_fkey">
       <ObjectId>16519</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>que_id</ColNames>
@@ -402,7 +416,7 @@ sequence|table|16595|16597|5
       <RefKeyName>question_pkey</RefKeyName>
       <RefColNames>que_id</RefColNames>
     </foreign-key>
-    <column id="57" parent="42" name="feedback_id">
+    <column id="59" parent="43" name="feedback_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -410,19 +424,19 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;feedback_feedback_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="58" parent="42" name="feedback_head">
+    <column id="60" parent="43" name="feedback_head">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <StateNumber>796</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="59" parent="42" name="feedback_text">
+    <column id="61" parent="43" name="feedback_text">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <StateNumber>796</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="60" parent="42" name="nutrition_id">
+    <column id="62" parent="43" name="nutrition_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -430,7 +444,7 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;feedback_nutrition_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="61" parent="42" name="uuser_id">
+    <column id="63" parent="43" name="uuser_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -438,28 +452,28 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;feedback_uuser_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="62" parent="42" name="name">
+    <column id="64" parent="43" name="name">
       <Position>6</Position>
       <DataType>char(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>819</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <index id="63" parent="42" name="feedback_pkey">
+    <index id="65" parent="43" name="feedback_pkey">
       <ObjectId>16606</ObjectId>
       <StateNumber>796</StateNumber>
       <ColNames>feedback_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="64" parent="42" name="feedback_pkey">
+    <key id="66" parent="43" name="feedback_pkey">
       <ObjectId>16607</ObjectId>
       <StateNumber>796</StateNumber>
       <ColNames>feedback_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>feedback_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="65" parent="42" name="feedback_nutrition_id_fkey">
+    <foreign-key id="67" parent="43" name="feedback_nutrition_id_fkey">
       <ObjectId>16608</ObjectId>
       <StateNumber>796</StateNumber>
       <ColNames>nutrition_id</ColNames>
@@ -469,7 +483,7 @@ sequence|table|16595|16597|5
       <RefKeyName>nutritionprogram_pkey</RefKeyName>
       <RefColNames>nutrition_id</RefColNames>
     </foreign-key>
-    <foreign-key id="66" parent="42" name="feedback_uuser_id_fkey">
+    <foreign-key id="68" parent="43" name="feedback_uuser_id_fkey">
       <ObjectId>16613</ObjectId>
       <StateNumber>796</StateNumber>
       <ColNames>uuser_id</ColNames>
@@ -479,7 +493,7 @@ sequence|table|16595|16597|5
       <RefKeyName>uuser_pkey</RefKeyName>
       <RefColNames>uuser_id</RefColNames>
     </foreign-key>
-    <column id="67" parent="43" name="nutrition_id">
+    <column id="69" parent="44" name="nutrition_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -487,79 +501,79 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;nutritionprogram_nutrition_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="68" parent="43" name="np_name">
+    <column id="70" parent="44" name="np_name">
       <Position>2</Position>
       <DataType>char(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>631</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="69" parent="43" name="np_description">
+    <column id="71" parent="44" name="np_description">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>632</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="70" parent="43" name="test_score">
+    <column id="72" parent="44" name="test_score">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>633</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="71" parent="43" name="sport_id">
+    <column id="73" parent="44" name="sport_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>634</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="72" parent="43" name="nutrition_recipe_breakfast">
+    <column id="74" parent="44" name="nutrition_recipe_breakfast">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <StateNumber>929</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="73" parent="43" name="nutrition_recipe_dinner">
+    <column id="75" parent="44" name="nutrition_recipe_dinner">
       <Position>9</Position>
       <DataType>text|0s</DataType>
       <StateNumber>930</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="74" parent="43" name="nutrition_recipe_supper">
+    <column id="76" parent="44" name="nutrition_recipe_supper">
       <Position>10</Position>
       <DataType>text|0s</DataType>
       <StateNumber>931</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="75" parent="43" name="nutrition_recipe_snack">
+    <column id="77" parent="44" name="nutrition_recipe_snack">
       <Position>11</Position>
       <DataType>text|0s</DataType>
       <StateNumber>932</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="76" parent="43" name="nutritionprogram_pkey">
+    <index id="78" parent="44" name="nutritionprogram_pkey">
       <ObjectId>16437</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>nutrition_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="77" parent="43" name="nutritionprogram_np_name_uindex">
+    <index id="79" parent="44" name="nutritionprogram_np_name_uindex">
       <ObjectId>16529</ObjectId>
       <StateNumber>635</StateNumber>
       <ColNames>np_name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="78" parent="43" name="nutritionprogram_pkey">
+    <key id="80" parent="44" name="nutritionprogram_pkey">
       <ObjectId>16438</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>nutrition_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>nutritionprogram_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="79" parent="43" name="nutritionprogram_sport_id_fkey">
+    <foreign-key id="81" parent="44" name="nutritionprogram_sport_id_fkey">
       <ObjectId>16439</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>sport_id</ColNames>
@@ -569,7 +583,7 @@ sequence|table|16595|16597|5
       <RefKeyName>sportprogram_pkey</RefKeyName>
       <RefColNames>sport_id</RefColNames>
     </foreign-key>
-    <column id="80" parent="44" name="place_id">
+    <column id="82" parent="45" name="place_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -577,41 +591,51 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;placetrena_place_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="81" parent="44" name="place_type">
+    <column id="83" parent="45" name="place_type">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>754</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="82" parent="44" name="pl_description">
+    <column id="84" parent="45" name="pl_description">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>628</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="83" parent="44" name="place_upr">
-      <Position>4</Position>
-      <DataType>text|0s</DataType>
-      <StateNumber>773</StateNumber>
-      <TypeId>25</TypeId>
+    <column id="85" parent="45" name="training_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1036</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <index id="84" parent="44" name="placetrena_pkey">
+    <index id="86" parent="45" name="placetrena_pkey">
       <ObjectId>16404</ObjectId>
       <StateNumber>754</StateNumber>
       <ColNames>place_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="85" parent="44" name="placetrena_pkey">
+    <key id="87" parent="45" name="placetrena_pkey">
       <ObjectId>16405</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>place_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>placetrena_pkey</UnderlyingIndexName>
     </key>
-    <column id="86" parent="45" name="que_id">
+    <foreign-key id="88" parent="45" name="placetrena_training_id_fk">
+      <ObjectId>32961</ObjectId>
+      <StateNumber>1039</StateNumber>
+      <ColNames>training_id</ColNames>
+      <RefTableId>32947</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>training_exercise</RefTableName>
+      <RefKeyName>training_exercise_pk</RefKeyName>
+      <RefColNames>training_id</RefColNames>
+    </foreign-key>
+    <column id="89" parent="46" name="que_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -619,41 +643,41 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;question_que_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="87" parent="45" name="que_text">
+    <column id="90" parent="46" name="que_text">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>709</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="88" parent="45" name="test_id">
+    <column id="91" parent="46" name="test_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>623</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="89" parent="45" name="question_pkey">
+    <index id="92" parent="46" name="question_pkey">
       <ObjectId>16501</ObjectId>
       <StateNumber>709</StateNumber>
       <ColNames>que_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="90" parent="45" name="question_que_text_uindex">
+    <index id="93" parent="46" name="question_que_text_uindex">
       <ObjectId>16543</ObjectId>
       <StateNumber>709</StateNumber>
       <ColNames>que_text</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="91" parent="45" name="question_pkey">
+    <key id="94" parent="46" name="question_pkey">
       <ObjectId>16502</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>que_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>question_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="92" parent="45" name="question_test_id_fkey">
+    <foreign-key id="95" parent="46" name="question_test_id_fkey">
       <ObjectId>16503</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>test_id</ColNames>
@@ -663,7 +687,7 @@ sequence|table|16595|16597|5
       <RefKeyName>test_pkey</RefKeyName>
       <RefColNames>test_id</RefColNames>
     </foreign-key>
-    <column id="93" parent="46" name="sport_id">
+    <column id="96" parent="47" name="sport_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -671,66 +695,66 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;sportprogram_sport_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="94" parent="46" name="sp_name">
+    <column id="97" parent="47" name="sp_name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>758</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="95" parent="46" name="sp_header">
+    <column id="98" parent="47" name="sp_header">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>974</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="96" parent="46" name="place_id">
+    <column id="99" parent="47" name="place_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>617</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="97" parent="46" name="sp_myths_header">
+    <column id="100" parent="47" name="sp_myths_header">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <StateNumber>975</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="98" parent="46" name="sp_myths">
+    <column id="101" parent="47" name="sp_myths">
       <Position>7</Position>
       <DataType>text|0s</DataType>
       <StateNumber>976</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="99" parent="46" name="sportprogram_pkey">
+    <index id="102" parent="47" name="sportprogram_pkey">
       <ObjectId>16418</ObjectId>
       <StateNumber>758</StateNumber>
       <ColNames>sport_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="100" parent="46" name="sportprogram_sp_name_uindex">
+    <index id="103" parent="47" name="sportprogram_sp_name_uindex">
       <ObjectId>16562</ObjectId>
       <StateNumber>758</StateNumber>
       <ColNames>sp_name</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="101" parent="46" name="sportprogram_sp_description_uindex">
+    <index id="104" parent="47" name="sportprogram_sp_description_uindex">
       <ObjectId>16526</ObjectId>
       <StateNumber>758</StateNumber>
       <ColNames>sp_header</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="102" parent="46" name="sportprogram_pkey">
+    <key id="105" parent="47" name="sportprogram_pkey">
       <ObjectId>16419</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>sport_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sportprogram_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="103" parent="46" name="sportprogram_place_id_fkey">
+    <foreign-key id="106" parent="47" name="sportprogram_place_id_fkey">
       <ObjectId>16420</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>place_id</ColNames>
@@ -740,7 +764,7 @@ sequence|table|16595|16597|5
       <RefKeyName>placetrena_pkey</RefKeyName>
       <RefColNames>place_id</RefColNames>
     </foreign-key>
-    <column id="104" parent="47" name="test_id">
+    <column id="107" parent="48" name="test_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -748,21 +772,21 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;test_test_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <index id="105" parent="47" name="test_pkey">
+    <index id="108" parent="48" name="test_pkey">
       <ObjectId>16466</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>test_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="106" parent="47" name="test_pkey">
+    <key id="109" parent="48" name="test_pkey">
       <ObjectId>16467</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>test_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>test_pkey</UnderlyingIndexName>
     </key>
-    <column id="107" parent="48" name="result_id">
+    <column id="110" parent="49" name="result_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -770,7 +794,7 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;test_result_result_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="108" parent="48" name="uuser_id">
+    <column id="111" parent="49" name="uuser_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -778,7 +802,7 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;test_result_uuser_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="109" parent="48" name="test_id">
+    <column id="112" parent="49" name="test_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -786,7 +810,7 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;test_result_test_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="110" parent="48" name="ans_result">
+    <column id="113" parent="49" name="ans_result">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -794,21 +818,21 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;test_result_ans_result_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <index id="111" parent="48" name="test_result_pkey">
+    <index id="114" parent="49" name="test_result_pkey">
       <ObjectId>16480</ObjectId>
       <StateNumber>921</StateNumber>
       <ColNames>result_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="112" parent="48" name="test_result_pkey">
+    <key id="115" parent="49" name="test_result_pkey">
       <ObjectId>16481</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>result_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>test_result_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="113" parent="48" name="test_result_uuser_id_fkey">
+    <foreign-key id="116" parent="49" name="test_result_uuser_id_fkey">
       <ObjectId>16482</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>uuser_id</ColNames>
@@ -818,7 +842,7 @@ sequence|table|16595|16597|5
       <RefKeyName>uuser_pkey</RefKeyName>
       <RefColNames>uuser_id</RefColNames>
     </foreign-key>
-    <foreign-key id="114" parent="48" name="test_result_test_id_fkey">
+    <foreign-key id="117" parent="49" name="test_result_test_id_fkey">
       <ObjectId>16487</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>test_id</ColNames>
@@ -828,7 +852,41 @@ sequence|table|16595|16597|5
       <RefKeyName>test_pkey</RefKeyName>
       <RefColNames>test_id</RefColNames>
     </foreign-key>
-    <column id="115" parent="49" name="uuser_id">
+    <column id="118" parent="50" name="training_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1013</StateNumber>
+      <DefaultExpression>nextval(&apos;training_exercise_training_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="119" parent="50" name="train_name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>1017</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="120" parent="50" name="train_desc">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>1018</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="121" parent="50" name="training_exercise_pk">
+      <ObjectId>32956</ObjectId>
+      <StateNumber>1014</StateNumber>
+      <ColNames>training_id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="122" parent="50" name="training_exercise_pk">
+      <ObjectId>32957</ObjectId>
+      <StateNumber>1014</StateNumber>
+      <ColNames>training_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>training_exercise_pk</UnderlyingIndexName>
+    </key>
+    <column id="123" parent="51" name="uuser_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -836,115 +894,115 @@ sequence|table|16595|16597|5
       <DefaultExpression>nextval(&apos;uuser_uuser_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="116" parent="49" name="login">
+    <column id="124" parent="51" name="login">
       <Position>2</Position>
       <DataType>char(15)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>582</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="117" parent="49" name="email">
+    <column id="125" parent="51" name="email">
       <Position>3</Position>
       <DataType>char(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>583</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="118" parent="49" name="ppassword">
+    <column id="126" parent="51" name="ppassword">
       <Position>4</Position>
       <DataType>char(25)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>584</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="119" parent="49" name="reg_date">
+    <column id="127" parent="51" name="reg_date">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>585</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="120" parent="49" name="target_weight">
+    <column id="128" parent="51" name="target_weight">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>586</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="121" parent="49" name="current_weight">
+    <column id="129" parent="51" name="current_weight">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>587</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="122" parent="49" name="calories">
+    <column id="130" parent="51" name="calories">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>588</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="123" parent="49" name="height">
+    <column id="131" parent="51" name="height">
       <Position>9</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>589</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="124" parent="49" name="age">
+    <column id="132" parent="51" name="age">
       <Position>10</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>590</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="125" parent="49" name="gender">
+    <column id="133" parent="51" name="gender">
       <Position>11</Position>
       <DataType>char(16)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>686</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="126" parent="49" name="nutrition_id">
+    <column id="134" parent="51" name="nutrition_id">
       <Position>12</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>602</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="127" parent="49" name="nutrition_start">
+    <column id="135" parent="51" name="nutrition_start">
       <Position>13</Position>
       <DataType>date|0s</DataType>
       <StateNumber>803</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <index id="128" parent="49" name="uuser_pkey">
+    <index id="136" parent="51" name="uuser_pkey">
       <ObjectId>16453</ObjectId>
       <StateNumber>686</StateNumber>
       <ColNames>uuser_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="129" parent="49" name="uuser_login_uindex">
+    <index id="137" parent="51" name="uuser_login_uindex">
       <ObjectId>16525</ObjectId>
       <StateNumber>686</StateNumber>
       <ColNames>login</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="130" parent="49" name="uuser_email_uindex">
+    <index id="138" parent="51" name="uuser_email_uindex">
       <ObjectId>16524</ObjectId>
       <StateNumber>686</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="131" parent="49" name="uuser_pkey">
+    <key id="139" parent="51" name="uuser_pkey">
       <ObjectId>16454</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>uuser_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>uuser_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="132" parent="49" name="uuser_nutrition_id_fkey">
+    <foreign-key id="140" parent="51" name="uuser_nutrition_id_fkey">
       <ObjectId>16455</ObjectId>
       <StateNumber>573</StateNumber>
       <ColNames>nutrition_id</ColNames>

@@ -13,7 +13,7 @@
     <div class="container emp-profile"
          style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
         <section class="dark-grey-text" id="Myths">
-            <h3 class="text-center font-weight-bold mb-4 pb-2">{{ records[2] }}</h3>
+            <h3 class="text-center font-weight-bold mb-4 pb-2" >{{ records[3] }}</h3>
             <hr>
             <p class="text-center text-muted w-responsive mx-auto mb-5">
             <h3>{{ sp_header[0] }}</h3></p>
@@ -61,7 +61,8 @@
     <!--Второй блок-->
     <div>
         <div class="container emp-profile"
-             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;" id="Advantages">
+             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;"
+             id="Advantages">
             <section class="text-center px-md-5 mx-md-5 dark-grey-text">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-7">
@@ -97,8 +98,8 @@
         <!--Блок мест-->
         <section class="dark-grey-text text-center" id="placetren">
             <div class="container emp-profile"
-                 style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);" id="Place">
-                <h3>Our best place</h3>
+                 style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;" id="Place">
+                <h3>Рекомендуемое место для тренировок</h3>
                 <hr>
                 <p class="text-muted w-responsive mx-auto mb-5">Начать заниматься проще, чем вы думаете</p>
                 <div class="row">
@@ -107,7 +108,7 @@
                         <div class="container emp-profile"
                              style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
                             <div class="view overlay rounded z-depth-1">
-                                <img src="/static/images/tiago-aleixo-ToUPFfxkmw8-unsplash.jpg" class="img-fluid"
+                                <img src="/static/images/photo-1457969414820-5fdd86fc0b84.jpg" class="img-fluid"
                                      alt="Sample project image">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
@@ -122,43 +123,61 @@
                     </div>
 
 
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-8 col-md-6 mb-4">
                         <div class="container emp-profile"
                              style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
                             <div class="view overlay rounded z-depth-1">
-                                <img src="/static/images/victor-freitas-qZ-U9z4TQ6A-unsplash.jpg" class="img-fluid"
-                                     alt="Sample project image">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
+                                <h3>Упражнения, которые стоит делать каждому</h3>
+                                <hr>
+                                <h6>Делайте четыре ключевые позиции, каждая по 30 секунд:</h6><hr>
                             </div>
 
                             <div class="px-3 pt-3 mx-1 mt-1 pb-0">
-                                <h4 class="font-weight-bold mt-1 mb-3">{{ pl_name[1] }}</h4>
-                                <p class="text-muted">{{ pl_desc[3] }}. {{ pl_desc[4] }}. {{ pl_desc[5] }}</p>
+                                <p class="text-muted">
+                                <table style='width: 100%;'>
+                                    <tr style="vertical-align: center; padding: 5px;">
+                                        <td style="width: 50%; background: rgba(181, 91, 83, 0.4); border-right: 5px solid #ccc">
+                                            <ul align="left">
+                                                <h5>{{ train_name[0] }}</h5>
+                                                <li>{{ train_desc[0] }}</li>
+                                                <li>{{ train_desc[1] }}</li>
+                                                <li>{{ train_desc[2] }}</li>
+                                            </ul>
+                                        </td>
+                                        <td style="width: 10px;"></td>
+                                        <td style="background: #ccc; border-left: 5px solid #c4bab8;"><br>
+                                            <ol align="left">
+                                                <h5>{{ train_name[1] }}</h5>
+                                                <li>{{ train_desc[3] }}</li>
+                                                <li>{{ train_desc[4] }}</li>
+                                                <li>{{ train_desc[5] }}</li>
+                                            </ol>
+                                        </td>
+                                    </tr>
+                                    <tr style="vertical-align: center; padding: 5px;">
+                                        <td style="width: 50%; background: #ccc; border-right: 5px solid #c4bab8; "><br>
+                                            <ol align="left">
+                                                <h5>{{ train_name[2] }}</h5>
+                                                <li>{{ train_desc[3] }}</li>
+                                                <li>{{ train_desc[4] }}</li>
+                                                <li>{{ train_desc[5] }}</li>
+                                            </ol>
+                                        </td>
+                                        <td style="width: 10px;"></td>
+                                        <td style="background: rgba(181, 91, 83, 0.4); border-left: 5px solid #ccc;">
+                                            <ul align="left">
+                                                <h5>{{ train_name[3] }}</h5>
+                                                <li>{{ train_desc[6] }}</li>
+                                                <li>{{ train_desc[7] }}</li>
+                                                <li>{{ train_desc[8] }}</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                                </p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="container emp-profile"
-                             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);">
-                            <div class="view overlay rounded z-depth-1">
-                                <img src="/static/images/dominik-martin-b2-fBVrfx0o-unsplash.jpg" class="img-fluid"
-                                     alt="Sample project image">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                            <div class="px-3 pt-3 mx-1 mt-1 pb-0">
-                                <h4 class="font-weight-bold mt-1 mb-3">{{ pl_name[2] }}</h4>
-                                <p class="text-muted">{{ pl_desc[6] }}</p>
-
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>

@@ -32,7 +32,10 @@
         <hr>
         <div><br>
             <h5 style="color: #cecce2;">«Тому, кто спит, не достается ничего, кроме грез» — Серена Уильямс</h5><br>
-            <h5 id="demo"><button onclick="typeWriter()">Click me</button></h5><br>
+            <h5 id="demo">
+                <button onclick="typeWriter()">Click me</button>
+            </h5>
+            <br>
             <h5 style="color: #cecce2;">«Что мною движет на пути к цели? Моя слабость, которую я не переношу и превращаю
                 в силу, чтобы продолжать борьбу» — Майкл Джордан.</h5><br>
             <h5>«Уделите время самому себе. Тренировки не истощают мой запас энергии. Наоборот, они насыщают меня
@@ -51,136 +54,147 @@
             <h6>Всё ещё не с нами?</h6><br>
             <div><a href="{{ url_for('registration') }}" role="button"
                     style="border:none; border-radius:1.5rem;
-                                    padding: 1%; width: 20%; cursor: pointer; background: linear-gradient(to right, #80d8f5 0%, #92c8f5 71%, #5fabf5 100%); color: #f9f6ff;">Registration</a></div>
+                                    padding: 1%; width: 20%; cursor: pointer; background: linear-gradient(to right, #80d8f5 0%, #92c8f5 71%, #5fabf5 100%); color: #f9f6ff;">Registration</a>
+            </div>
         {% endif %}
     </div><br>
 
-    <div class="container-fluid">
-
-        <section id="nutrition" class="text-center">
-            <div class="container"
-                 style="margin-top: 100px; margin-bottom: 100px; max-width: 90rem; max-height: 60rem">
-                <span align="center" style="font-family: 'Inconsolata', monospace; border:3px #413D4C  solid; font-size: 29px; padding: 10px; background-color: #e5b1a0; color:#fff;">Преимущества наших программ</span><hr>
-                <div class="post-wrap">
-                    <div class="post-item">
-                        <div class="item-content">
-                            <div class="item-body">
-                                <img src="https://img.icons8.com/doodle/48/000000/ok-hand.png">
-                                <h3>Protein Weight Loss </h3>
+    <section id="nutrition" class="text-center">
+        <div class="container"
+             style="margin-top: 100px; margin-bottom: 100px; max-width: 90rem; max-height: 60rem">
+            <span align="center"
+                  style="font-family: 'Inconsolata', monospace; border:3px #413D4C  solid; font-size: 29px; padding: 10px; background-color: #e5b1a0; color:#fff;">Преимущества наших программ</span>
+            <hr>
+            <div class="post-wrap">
+                <div class="post-item">
+                    <div class="item-content">
+                        <div class="item-body">
+                            <img src="https://img.icons8.com/doodle/48/000000/ok-hand.png">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=10) }}"
+                               class="link">
+                                <h3 align="left">Протеиновое питание</h3>
                                 <ul class="row align-items-start" style="list-style-type: circle;">
-                                    <li>Entire 3-week plan</li>
-                                    <li>Easy meals to prepare</li>
-                                    <li>Meals rich in Protein</li>
+                                    <li>Меньше аппетит</li>
+                                    <li>Больше контроля</li>
+                                    <li>Блюда планируются заранее</li>
                                 </ul>
-                            </div>
-                            <div class="item-footer">
-                                <a href="{{ url_for('nutrition_program', nutrition_id=10) }}"
-                                   class="link"><span>Подробнее</span></a>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="item-footer">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=10) }}"
+                               class="link"><span>Подробнее</span></a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="post-item" style="min-width: 21.5rem; max-height: 22rem">
-                        <div class="item-content">
-                            <img src="https://img.icons8.com/doodle/48/000000/easy.png">
-                            <div class="item-body">
-                                <h3>3-недельная диета </h3>
+                <div class="post-item" style="min-width: 21.5rem; max-height: 22rem">
+                    <div class="item-content">
+                        <img src="https://img.icons8.com/doodle/48/000000/easy.png">
+                        <div class="item-body">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=20) }}"
+                               class="link">
+                                <h3 align="left">3-недельная диета </h3>
                                 <ul class="row align-items-start" style="list-style-type: circle;">
                                     <li>Блюда планируются заранее</li>
                                     <li>Рецепты с 5-ю ингредиентами</li>
                                     <li>Списки покупок включены</li>
                                 </ul>
-                            </div>
-                            <div class="item-footer">
-                                <a href="{{ url_for('nutrition_program', nutrition_id=20) }}"
-                                   class="link"><span>Подробнее</span></a>
-                            </div>
+                            </a>
                         </div>
-                    </div>
-
-                    <div class="post-item">
-                        <div class="item-content">
-                            <img src="https://img.icons8.com/doodle/48/000000/call-me.png">
-                            <div class="item-body">
-                                <h3>Пища для силы</h3>
-                                <ul class="row align-items-start" style="list-style-type: circle;">
-                                    <li>Больше контроля, меньше перекуса</li>
-                                    <li>Меньше аппетит</li>
-                                    <li>Отслеживание упражнений</li>
-                                </ul>
-                            </div>
-                            <div class="item-footer">
-                                <a href="{{ url_for('nutrition_program', nutrition_id=30) }}"
-                                   class="link"><span>Подробнее</span></a>
-                            </div>
+                        <div class="item-footer">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=20) }}"
+                               class="link"><span>Подробнее</span></a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-
-        <section id="sport" class="text-center">
-            <div class="container"
-                 style="margin-top: 100px; margin-bottom: 100px; max-width: 90rem; max-height: 60rem">
-                <div class="post-wrap">
-                    <div class="post-item">
-                        <div class="item-content">
-                            <div class="item-body">
-                                <img src="https://img.icons8.com/doodle/48/000000/ok-hand.png">
-                                <h3>Protein Weight Loss </h3>
+                <div class="post-item">
+                    <div class="item-content">
+                        <img src="https://img.icons8.com/doodle/48/000000/call-me.png">
+                        <div class="item-body">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=30) }}"
+                               class="link">
+                                <h3 align="left">Пища для силы</h3>
                                 <ul class="row align-items-start" style="list-style-type: circle;">
-                                    <li>Entire 3-week plan</li>
-                                    <li>Easy meals to prepare</li>
-                                    <li>Meals rich in Protein</li>
+                                    <li>Больше контроля</li>
+                                    <li>Меньше аппетит</li>
+                                    <li>Отслеживание упражнений</li>
                                 </ul>
-                            </div>
-                            <div class="item-footer">
-                                <a href="{{ url_for('nutrition_program', nutrition_id=10) }}"
-                                   class="link"><span>Подробнее</span></a>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="item-footer">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=30) }}"
+                               class="link"><span>Подробнее</span></a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="post-item" style="min-width: 21.5rem; max-height: 22rem">
-                        <div class="item-content">
-                            <img src="https://img.icons8.com/doodle/48/000000/easy.png">
-                            <div class="item-body">
-                                <h3>3-недельная диета </h3>
+                <div class="post-item">
+                    <div class="item-content">
+                        <img src="https://img.icons8.com/doodle/48/000000/facebook-like.png">
+                        <div class="item-body">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=40) }}"
+                               class="link">
+                                <h3 align="left">Классическая диета</h3>
                                 <ul class="row align-items-start" style="list-style-type: circle;">
+                                    <li>Без запрещенных продуктов</li>
+                                    <li>Здоровая пища</li>
+                                    <li>Блюда планируются</li>
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="item-footer">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=40) }}"
+                               class="link"><span>Подробнее</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-item">
+                    <div class="item-content">
+                        <img src="https://img.icons8.com/doodle/48/000000/handshake--v1.png">
+                        <div class="item-body">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=50) }}"
+                               class="link">
+                                <h3 align="left">Сахарный детокс</h3>
+                                <ul class="row align-items-start" style="list-style-type: circle;">
+                                    <li>Ускоренное сжигание жира</li>
                                     <li>Блюда планируются заранее</li>
-                                    <li>Рецепты с 5-ю ингредиентами</li>
-                                    <li>Списки покупок включены</li>
+                                    <li>Меньше зависимость</li>
                                 </ul>
-                            </div>
-                            <div class="item-footer">
-                                <a href="{{ url_for('nutrition_program', nutrition_id=20) }}"
-                                   class="link"><span>Подробнее</span></a>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="item-footer">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=50) }}"
+                               class="link"><span>Подробнее</span></a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="post-item">
-                        <div class="item-content">
-                            <img src="https://img.icons8.com/doodle/48/000000/call-me.png">
-                            <div class="item-body">
-                                <h3>Пища для силы</h3>
+                <div class="post-item">
+                    <div class="item-content">
+                        <img src="https://img.icons8.com/doodle/48/000000/volunteering--v1.png">
+                        <div class="item-body">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=60) }}"
+                               class="link">
+                                <h3 align="left">Веган на неделю</h3>
                                 <ul class="row align-items-start" style="list-style-type: circle;">
-                                    <li>Больше контроля, меньше перекуса</li>
+                                    <li>Овощи и Фрукты</li>
                                     <li>Меньше аппетит</li>
                                     <li>Отслеживание упражнений</li>
                                 </ul>
-                            </div>
-                            <div class="item-footer">
-                                <a href="{{ url_for('nutrition_program', nutrition_id=30) }}"
-                                   class="link"><span>Подробнее</span></a>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="item-footer">
+                            <a href="{{ url_for('nutrition_program', nutrition_id=60) }}"
+                               class="link"><span>Подробнее</span></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
     <section id="reviews">
         <div class="row justify-content-center">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"
@@ -189,7 +203,10 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active"><br><br>
                         <div class="d-block w-400">
-                            <h2><b>Ваши отзывы о программах</b></h2>
+                            <h2 style="color: #ffdcc2"><b>Ваши отзывы о программах</b></h2>
+                            <hr>
+                            <img src="/static/images/feedback.png">
+                            <br>
                             <hr>
                             <p>Не верите нам? Реальные отзывы от реальных людей!</p>
                         </div>
@@ -200,15 +217,18 @@
                                 <div class="row-md-4"><br><br>
                                     <h3><b>{{ row[2] }}</b></h3>
                                     <hr>
-                                    <h5><b>{{ row[1] }}</b></h5><br>
-                                    <p>{{ row[3] }}</p><hr><br>
+                                    <h5 style="color: #ffdcc2"><b>{{ row[1] }}</b></h5><br>
+                                    <p>&#10077; {{ row[3] }} &#10078;</p>
+                                    <hr>
+                                    <br>
                                     <div><a href="{{ url_for('nutrition_program', nutrition_id=row[4]) }}" role="button"
                                             style="border:none; border-radius:1.5rem;
-                                    padding: 1%; width: 20%; cursor: pointer; background: linear-gradient(to right, #80d8f5 0%, #92c8f5 71%, #5fabf5 100%); color: #f9f6ff;">Ссылка
-                                        на программу</a></div>
+                                            padding: 1%; width: 20%; cursor: pointer; background: linear-gradient(to right, #80d8f5 0%, #92c8f5 71%, #5fabf5 100%); color: #f9f6ff;">Ссылка
+                                        на программу</a>
+                                    </div>
                                     <br>
                                     <hr>
-                                    <h6>{{ row[0] }}</h6>
+                                    <h6 style="color: #ffdcc2">{{ row[0] }}</h6>
                                 </div>
                             </div>
 

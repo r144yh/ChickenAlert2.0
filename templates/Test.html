@@ -9,116 +9,95 @@
 
 {% block content %}
     <br> <br> <br>
-    <div class="jumbotron card card-image" id="que1"
-         style="background-image: linear-gradient(to right, #e5b1a0 0%, #5d3368 61%, #e5b1a0 100%); font-family: 'Inconsolata', monospace;">
-        <hr>
-        <div class="text-white text-center py-5 px-4">
-            <div>
-                <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>This is a small step to a big
-                    victory</strong></h2>
-                <p class="mx-5 mb-5">[[ Прохождение теста является только рекомендацией и не заставляет вас следовать
-                    результату ]]</p>
+    <form action="" method="post" novalidate>
+        <div class="jumbotron card card-image" id="que1"
+             style="background-image: linear-gradient(to right, #e5b1a0 0%, #5d3368 61%, #e5b1a0 100%);
+                    font-family: 'Inconsolata', monospace;">
+            <hr>
+            <div class="text-white text-center py-5 px-4">
+                <div>
+                    <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>This is a small step to a big
+                        victory</strong></h2>
+                    <p class="mx-5 mb-5">[[ Прохождение теста является только рекомендацией и не заставляет вас
+                        следовать
+                        результату ]]</p>
 
+                </div>
             </div>
-        </div>
-        <hr>
-        <hr>
-        <script>
-            var sum = 0;
+            <hr>
+            <hr>
 
-            function fun1(name) {
-                var rad = document.getElementsByName(name);
-                for (var i = 0; i < rad.length; i++) {
-                    if (rad[i].checked) {
-                        var res = rad[i].value;
-                        sum += Number(res);
-                        {#alert('Выбран ' + i + ' radiobutton ' + res + ' ' + sum);#}
-                    }
-                }
-            }
-
-            function fun2() {
-
-                if (sum > 0) {
-                    if (sum <= 10) {
-                        sum = 10;
-                    } else if (sum > 10 && sum <= 20) {
-                        sum = 20;
-                    } else if (sum > 20 && sum <= 30) {
-                        sum = 30;
-                    } else if (sum > 30 && sum <= 40) {
-                        sum = 40;
-                    } else if (sum > 40 && sum <= 50) {
-                        sum = 50;
-                    } else if (sum > 50 && sum <= 60) {
-                        sum = 60;
-                    } else {
-                        sum = 60;
-                    }
-
-                    switch (sum) {
-                        case 10:
-                            document.location.href = "{{ url_for('set_prog', nutrition_id=10) }}";
-                            break;
-                        case 20:
-                            document.location.href = "{{ url_for('set_prog', nutrition_id=20) }}";
-                            break;
-                        case 30:
-                            document.location.href = "{{ url_for('set_prog', nutrition_id=30) }}";
-                            break;
-                        case 40:
-                            document.location.href = "{{ url_for('set_prog', nutrition_id=40) }}";
-                            break;
-                        case 50:
-                            document.location.href = "{{ url_for('set_prog', nutrition_id=50) }}";
-                            break;
-                        case 60:
-                            document.location.href = "{{ url_for('set_prog', nutrition_id=60) }}";
-                            break;
-                    }
-                } else {
-                    alert("Something was wrong. Please pass the test again.")
-                }
-            }
-        </script>
-        {% for row in len_ans %}
             <div class="container my-5 py-5 z-depth-1" style="background-color: #F5E2CD; border-radius: 30px;">
                 <section class="text-center px-md-5 mx-md-5 dark-grey-text">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-7">
-                            <h4>{{ row[0] }}</h4>
-                            <hr>
-                            {% for ans in row[1] %}
-{#                                <div class="container2">#}
-                                <div class="form-group">
-                                        {{ form.result(type="radio", class="form-control", style="list-style-type: none;", name="{{ row[2] }}", value="{{ ans[1] }}") }}
-                                </div>
-{#                                <span><input class="checkmark" type="radio" name="{{ row[2] }}" value="{{ ans[1] }}"#}
-{#                                          onclick="this.disabled = true; fun1({{ row[2] }})"> {{ ans[0] }} </span>#}
-{#                                </div>#}
+                            {{ form.hidden_tag() }}
+                            {{ form.result1.label }}
+                            <hr style="margin-top: 0">
+                            {{ form.result1(align="left", type="radio", class="form-control",
+                                            style="list-style-type: none; box-sizing:content-box;") }}
+                            {% for error in form.result1.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
                             {% endfor %}
+                            {{ form.result2.label }}
+                            <hr style="margin-top: 0">
+                            {{ form.result2(align="left", type="radio", class="form-control",
+                                            style="list-style-type: none; box-sizing:content-box;") }}
+                            {% for error in form.result2.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.result3.label }}
+                            <hr style="margin-top: 0">
+                            {{ form.result3(align="left", type="radio", class="form-control",
+                                            style="list-style-type: none; box-sizing:content-box;") }}
+                            {% for error in form.result3.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.result4.label }}
+                            <hr style="margin-top: 0">
+                            {{ form.result4(align="left", type="radio", class="form-control",
+                                            style="list-style-type: none; box-sizing:content-box;") }}
+                            {% for error in form.result4.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.result5.label }}
+                            <hr style="margin-top: 0">
+                            {{ form.result5(align="left", type="radio", class="form-control",
+                                            style="list-style-type: none; box-sizing:content-box;") }}
+                            {% for error in form.result5.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.result6.label }}
+                            <hr style="margin-top: 0">
+                            {{ form.result6(align="left", type="radio", class="form-control",
+                                            style="list-style-type: none; box-sizing:content-box;") }}
+                            {% for error in form.result6.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.result7.label }}
+                            <hr style="margin-top: 0">
+                            {{ form.result7(align="left", type="radio", class="form-control",
+                                            style="list-style-type: none; box-sizing:content-box;") }}
+                            {% for error in form.result7.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.result8.label }}
+                            <hr style="margin-top: 0">
+                            {{ form.result8(align="left", type="radio", class="form-control",
+                                            style="list-style-type: none; box-sizing:content-box;") }}
+                            {% for error in form.result8.errors %}
+                                <span style="color: #9f5a6c;">[{{ error }}]</span>
+                            {% endfor %}
+                            <p align="center"><input id="submit" name="submit" type="submit" class="submit"
+                                                     value="Отправить"
+                                                     style="margin-top: 1%; border: none; border-radius: 1.5rem;
+                                                     padding: 2%; background: #e5b1a0; color: #495057; font-weight: 600;
+                                                     width: 50%; cursor: pointer; ">
+                            </p>
                         </div>
                     </div>
                 </section>
             </div>
-        {% endfor %}
-        <div style="padding:20px" align="center">
-            <button type="button" onclick="fun2();" style=" text-decoration: none;
-                                   outline: none;
-                                   display: inline-block;
-                                   color: white;
-                                   padding: 20px 30px;
-                                   margin: 10px 20px;
-                                   border-radius: 10px;
-                                   font-family: 'Montserrat', sans-serif;
-                                   text-transform: uppercase;
-                                   letter-spacing: 2px;
-                                   background-image: linear-gradient(to right, #b55b53 0%, #5d3368 51%, #b55b53 100%);
-                                   background-size: 200% auto;
-                                   box-shadow: 0 0 20px rgba(0,0,0,.1);
-                                   transition: .5s;">
-                Отправить
-            </button>
         </div>
-    </div>
+    </form>
 {% endblock %}
