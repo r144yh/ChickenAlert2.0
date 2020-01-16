@@ -131,7 +131,8 @@ def profile(uuser_id):
         days = 0
     cursor.close()
     conn.close()
-    return render_template('profile.html', title='Profile', records=records, rand_num=rand_num, flag_no_prog=flag_no_prog, days=days)
+    return render_template('profile.html', title='Profile', records=records, rand_num=rand_num,
+                           flag_no_prog=flag_no_prog, days=days)
 
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -196,7 +197,7 @@ def nutrition_program(nutrition_id):
     records = cursor.fetchone()
     cursor.execute('SELECT name, np_name, feedback_head, feedback_text FROM feedback, nutritionprogram WHERE '
                    'feedback.nutrition_id = nutritionprogram.nutrition_id AND '
-                   'feedback.nutrition_id = %s', (nutrition_id, ))
+                   'feedback.nutrition_id = %s', (nutrition_id,))
     fb = cursor.fetchall()
     np_desc = records[3].split('.')
     nutr_breakfast = records[5].split('.')
@@ -206,20 +207,8 @@ def nutrition_program(nutrition_id):
     cursor.close()
     conn.close()
     return render_template('nutrition_program.html', title='Nutrition Program', records=records, np_desc=np_desc,
-                           nutr_breakfast=nutr_breakfast, nutr_dinner=nutr_dinner, nutr_supper=nutr_supper, nutr_snack=nutr_snack, fb=fb)
-
-
-@app.route('/set_prog/<nutrition_id>')
-@login_required
-def set_prog(nutrition_id):
-    now = datetime.datetime.now()
-    conn = try_connect()
-    cursor = conn.cursor()
-    cursor.execute('UPDATE uuser SET nutrition_id = %s, nutrition_start = %s WHERE uuser_id = %s', (nutrition_id, now, current_user.id))
-    conn.commit()
-    cursor.close()
-    conn.close()
-    return redirect(url_for('nutrition_program', nutrition_id=nutrition_id))
+                           nutr_breakfast=nutr_breakfast, nutr_dinner=nutr_dinner, nutr_supper=nutr_supper,
+                           nutr_snack=nutr_snack, fb=fb)
 
 
 @app.route('/sport_program/<sport_id>')
@@ -252,7 +241,8 @@ def test(test_id):
     if form.validate_on_submit():
         conn1 = try_connect()
         cursor1 = conn1.cursor()
-        test_result = int(form.result1.data) + int(form.result2.data) + int(form.result3.data) + int(form.result4.data) + int(
+        test_result = int(form.result1.data) + int(form.result2.data) + int(form.result3.data) + int(
+            form.result4.data) + int(
             form.result5.data) + int(form.result6.data) + int(form.result7.data) + int(form.result8.data)
         print(test_result)
         if test_result <= 10:
@@ -283,6 +273,39 @@ def test(test_id):
 @app.route('/404')
 def error_404():
     return render_template('error.html')
+
+
+@app.route('/useful_information/<usefuli_id>', methods=["GET", "POST"])
+def useful_information(usefuli_id):
+    if current_user.is_anonymous:
+        return redirect(url_for('error_404'))
+
+    conn = try_connect()
+    cursor = conn.cursor()
+    cursor.execute('SELECT * '
+                    'FROM usefulinformation '
+                    'WHERE usefuli_id = %s',
+                    (usefuli_id,))
+    records = cursor.fetchone()
+    us_list_head = records[3].split('.')
+    us_list = records[4].split('.')
+    us_ex_head = records[5].split('.')
+    us_ex = records[6].split('.')
+    cursor.close()
+    conn.close()
+    flag_pict1 = False
+    if records[0] == 1:
+        flag_pict1 = True
+    flag_pict2 = False
+    if records[0] == 2:
+        flag_pict2 = True
+    flag_pict3 = False
+    if records[0] == 3:
+        flag_pict3 = True
+    major3 = True
+    return render_template('us_information.html', title='Useful Information', records=records, major3=major3,
+                           us_list_head=us_list_head, us_list=us_list, us_ex_head=us_ex_head, us_ex=us_ex,
+                           flag_pict1=flag_pict1, flag_pict2=flag_pict2, flag_pict3=flag_pict3)
 
 
 if __name__ == '__main__':

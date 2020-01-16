@@ -1,8 +1,7 @@
 from flask_wtf import FlaskForm
 from psycopg2._psycopg import cursor
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DecimalField, DateField, RadioField, \
-    IntegerField, TextAreaField
-from wtforms.validators import DataRequired, Email, ValidationError, NumberRange, InputRequired
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DecimalField, RadioField, TextAreaField
+from wtforms.validators import DataRequired, Email, ValidationError, NumberRange, InputRequired, Length
 from config import try_connect
 
 
@@ -28,7 +27,7 @@ class LoginForm(FlaskForm):
         user = self.login.data
         conn = try_connect()
         cursor1 = conn.cursor()
-        cursor1.execute('SELECT ppassword FROM uuser WHERE login = %s and ppassword = %s', (user,pas))
+        cursor1.execute('SELECT ppassword FROM uuser WHERE login = %s and ppassword = %s', (user, pas))
         records = cursor1.fetchone()
         if not records:
             raise ValidationError('Wrong password')
@@ -40,13 +39,11 @@ class RegistrationForm(FlaskForm):
     login = StringField('Логин', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     ppassword = PasswordField('Пароль', validators=[DataRequired()])
-    # reg_date = DateField('Дата Регистрации')
     target_weight = DecimalField('Целевой вес', validators=[NumberRange(min=40, max=300)])
     current_weight = DecimalField('Текущий вес', validators=[NumberRange(min=20, max=300)])
     calories = DecimalField('Кол-во каллорий в день', validators=[NumberRange(min=0, max=10000)])
     height = DecimalField('Рост', validators=[NumberRange(min=0, max=300)])
     age = DecimalField('Возраст', validators=[NumberRange(min=0, max=100)])
-    # gender = StringField('Пол')
     gender = RadioField('Пол', choices=[('Female', 'Female'), ('Male', 'Male')])
     submit = SubmitField('Register')
 
@@ -63,12 +60,9 @@ class EditProfileForm(FlaskForm):
 class FeedbackForm(FlaskForm):
     name = StringField('Your Name', validators=[DataRequired()])
     head = StringField('Your lost kilos', validators=[DataRequired()])
-    text = TextAreaField('Your Feedback', validators=[DataRequired()])
+    text = TextAreaField('Your Feedback', validators=[DataRequired(),
+                                                      Length(min=2, max=690, message='Invalid number of words')])
     submit = SubmitField('Submit')
-
-
-class TestForm(FlaskForm):
-    result = RadioField('Ответ', choices=[('', '')])
 
 
 class TestForm(FlaskForm):

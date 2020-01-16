@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="/static/styles/userProfile.css">
+    <link rel="stylesheet"
+          href="/static/styles/us_Inform.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <br><br><br>
+    <div class="col align-self-center">
+        <div class="container emp-profile"
+             style="background-image: linear-gradient(to right, #e5cbd1 0%, #afe2ff 71%, #e5b1a0 100%);
+             font-family: 'Inconsolata', monospace; box-sizing:content-box;">
+            <h2 align="center">{{ records[1] }}</h2>
+            <hr>
+            <h5 align="center">{{ records[2] }}</h5>
+            <hr>
+            <hr>
+
+            <div>
+                <h4>{{ us_list_head[0] }}</h4><hr>
+                <h6><b>{{ us_list_head[1] }}</b></h6>
+                <p>{{ us_list[0] }}</p>
+                <h6><b>{{ us_list_head[2] }}</b></h6>
+                <p>{{ us_list[1] }}</p>
+                <h6><b>{{ us_list_head[3] }}</b></h6>
+                <p>{{ us_list[2] }}</p>
+
+                <h4>{{ us_list_head[4] }}</h4>
+                <ul>
+                    <li>{{ us_list[3] }}</li>
+                    <li>{{ us_list[4] }}</li>
+                    <li>{{ us_list[5] }}</li>
+                </ul>
+            </div><hr>
+
+            <section>
+                <div class="container section"><br>
+                    <h4 align="left">{{ us_ex_head[0] }}</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{ us_ex_head[1] }}</h3>
+                            <p>{{ us_ex[0] }}.</p>
+                        </div>
+                        <div class="col-md-6">
+                            {% if flag_pict1 %}
+                                <img src="/static/images/morning_1.jpg" alt=""/>
+                            {% elif flag_pict2%}
+                                <img src="/static/images/medi_1.jpg" alt=""/>
+                            {% else %}
+                                <img src="/static/images/food_1.jpeg" alt=""/>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {% if flag_pict1 %}
+                                <img src="/static/images/morning_2.jpg" alt=""/>
+                            {% elif flag_pict2 %}
+                                <img src="/static/images/medi_2.jpg" alt=""/>
+                            {% else %}
+                                <img src="/static/images/food_2.jpeg" alt=""/>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <h3>
+                                {{ us_ex_head[2] }}
+                            </h3>
+                            <p>
+                                {{ us_ex[1] }}.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{ us_ex_head[3] }}</h3>
+                            <p>{{ us_ex[2] }}.</p>
+                        </div>
+                        <div class="col-md-6">
+                            {% if flag_pict1 %}
+                                <img src="/static/images/morning_3.jpg" alt=""/>
+                            {% elif flag_pict2 %}
+                                <img src="/static/images/medi_3.jpg" alt=""/>
+                            {% else %}
+                                <img src="/static/images/food_3.jpeg" alt=""/>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <hr>
+                    <br>
+                    <h4 align="left">{{ us_ex_head[4] }}</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{ us_ex_head[5] }}</h3>
+                            <p>{{ us_ex[3] }}.</p>
+                        </div>
+                        <div class="col-md-6">
+                            {% if flag_pict1 %}
+                                <img src="/static/images/morning_4.jpg" alt=""/>
+                            {% elif flag_pict2 %}
+                                <img src="/static/images/medi_4.jpg" alt=""/>
+                            {% else %}
+                                <img src="/static/images/food_4.jpeg" alt=""/>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {% if flag_pict1 %}
+                                <img src="/static/images/morning_5.jpg" alt=""/>
+                            {% elif flag_pict2 %}
+                                <img src="/static/images/medi_5.jpg" alt=""/>
+                            {% else %}
+                                <img src="/static/images/food_5.jpeg" alt=""/>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <h3>{{ us_ex_head[6] }}</h3>
+                            <p>{{ us_ex[4] }}.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{ us_ex_head[7] }}</h3>
+                            <p>{{ us_ex[5] }}.</p>
+                        </div>
+                        <div class="col-md-6">
+                            {% if flag_pict1 %}
+                                <img src="/static/images/morning_6.jpg" alt=""/>
+                            {% elif flag_pict2 %}
+                                <img src="/static/images/medi_6.jpg" alt=""/>
+                            {% else %}
+                                <img src="/static/images/food_6.jpeg" alt=""/>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

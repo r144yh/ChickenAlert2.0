@@ -39,7 +39,7 @@
                     <div class="form-group">
                         {{ form.text.label }}
                         {{ form.text( type="text", class="form-control", placeholder="Your Message *", style="width: 100%; height: 150px;") }}
-                        {% for error in form.head.errors %}
+                        {% for error in form.text.errors %}
                             <span style="color: #9f5a6c;">[{{ error }}]</span>
                         {% endfor %}
                     </div>
