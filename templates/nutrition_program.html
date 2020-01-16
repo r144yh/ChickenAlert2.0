@@ -9,13 +9,13 @@
 
 
 {% block content %}
-    <br><br><br><br><br>
+    <br> <br> <br>
     {% if current_user.np == records[1] %}<br>
         <div align="center"><a href="{{ url_for('add_feedback', nutrition_id=records[1]) }}" role="button"
                                style="border:none; border-radius:1.5rem; padding: 1%; width: 20%;
                                             cursor: pointer;
                                             background: linear-gradient(to right, #80d8f5 0%, #92c8f5 71%, #5fabf5 100%);
-                                            color: #f9f6ff;">Leave feedback</a></div><br><br><br>
+                                            color: #f9f6ff;">Leave feedback</a></div> <br>
     {% endif %}
     <br>
     <div class="container"

@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bc099a8-7678-4ba9-aad2-adb7779c6196" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/styles/us_Inform.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/us_information.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce/storage_v2/_src_/database/ChickenAlert.xwhsEg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea380e69-1968-4e80-9e29-18370c25d8ce/storage_v2/_src_/database/ChickenAlert.xwhsEg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/feedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/feedback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edit_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nutrition_program.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nutrition_program.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sport_program.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sport_program.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/us_information.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/us_information.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +220,7 @@
       <workItem from="1578683551219" duration="911000" />
       <workItem from="1578684479614" duration="40739000" />
       <workItem from="1578837444281" duration="21055000" />
-      <workItem from="1579175377915" duration="24152000" />
+      <workItem from="1579175377915" duration="26142000" />
     </task>
     <servers />
   </component>
@@ -244,6 +241,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ChikenAlert2_0$ChikenAlert2_0.coverage" NAME="ChikenAlert2.0 Coverage Results" MODIFIED="1579213923080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ChikenAlert2_0$ChikenAlert2_0.coverage" NAME="ChikenAlert2.0 Coverage Results" MODIFIED="1579217415793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
