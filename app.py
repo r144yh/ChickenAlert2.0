@@ -122,6 +122,18 @@ def profile(uuser_id):
                    'WHERE uuser_id = %s',
                    (now, uuser_id,))
     records = cursor.fetchone()
+    # cursor.execute('SELECT date(test_date), ans_result FROM test_result WHERE uuser_id = %s '
+    #                'GROUP BY uuser_id, date(test_date), ans_result '
+    #                'ORDER BY max(test_date) DESC ',
+    #                (current_user.id, ))
+
+    cursor.execute('SELECT date(test_date), ans_result FROM test_result WHERE uuser_id = %s '
+                   'ORDER BY test_date DESC ',
+                   (current_user.id,))
+    kek = cursor.fetchone()
+    cursor.execute('SELECT count(uuser_id) FROM test_result WHERE uuser_id = %s GROUP BY uuser_id',
+                   (current_user.id,))
+    kek1 = cursor.fetchone()
     flag_no_prog = False
     if records[10] == 'No prog                                 ':
         flag_no_prog = True
@@ -132,7 +144,7 @@ def profile(uuser_id):
     cursor.close()
     conn.close()
     return render_template('profile.html', title='Profile', records=records, rand_num=rand_num,
-                           flag_no_prog=flag_no_prog, days=days)
+                           flag_no_prog=flag_no_prog, days=days, kek=kek, kek1=kek1)
 
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -262,6 +274,10 @@ def test(test_id):
         now = datetime.datetime.now()
         cursor1.execute('UPDATE uuser SET nutrition_id = %s, nutrition_start = %s WHERE uuser_id = %s',
                         (test_result, now, current_user.id))
+        conn1.commit()
+
+        cursor1.execute('INSERT INTO test_result VALUES(DEFAULT, %s, %s, %s, %s)',
+                        (current_user.id, test_id, test_result, now))
         conn1.commit()
         cursor1.close()
         conn1.close()

@@ -30,7 +30,12 @@
                             <p class="proile-rating">Test program : <span><a
                                     href="{{ url_for('nutrition_program', nutrition_id=records[11]) }}">{{ records[10] }}</a></span>
                             </p>
-                            <p class="proile-rating">Program using time(days) : <span>{{ days }}</span></p>
+                            <p class="proile-rating">Program using time(days) : <span>{{ days }}</span>&nbsp;&nbsp;&nbsp;
+                                                     The score for the test : <span>{{ kek[1] }}</span>
+                            </p>
+                            <p class="proile-rating">Date of the last test : <span>{{ kek[0] }}</span>&nbsp;&nbsp;&nbsp;
+                                                     Count of tests : <span>{{ kek1[0] }}</span>
+                            </p>
                         {% endif %}
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -54,14 +59,14 @@
                     <div class="profile-work">
                         <p style="color: #007bff">FOR RESULTS LINK &#9660;</p>
                         <hr>
-                        <a href="{{ url_for('test', test_id=1) }}">Test</a><br/>
-                        <a href="{{ url_for('logout') }}">Go out and just do it</a><br/>
+                        <a href="{{ url_for('test', test_id=1) }}"><u>Test</u></a><br/>
+                        <a href="{{ url_for('logout') }}"><u>Go out and just do it</u></a><br/>
                         <p style="color: #007bff">SKILLS LINK &#9660;</p>
-                        <a href="{{ url_for('useful_information', usefuli_id=1) }}">Morning exercise</a><br/>
-                        <a href="{{ url_for('useful_information', usefuli_id=2) }}">5 minutes for yourself</a><br/>
-                        <a href="{{ url_for('useful_information', usefuli_id=3) }}">Basic set of products</a><br/>
-                        <a href="{{ url_for('nutrition_program', nutrition_id=40) }}">Basic nutrition program</a><br/>
-                        <a href="{{ url_for('sport_program', sport_id=1) }}">Basic sports program</a><br/>
+                        <a href="{{ url_for('useful_information', usefuli_id=1) }}"><u>Morning exercise</u></a><br/>
+                        <a href="{{ url_for('useful_information', usefuli_id=2) }}"><u>5 minutes for yourself</u></a><br/>
+                        <a href="{{ url_for('useful_information', usefuli_id=3) }}"><u>Basic set of products</u></a><br/>
+                        <a href="{{ url_for('nutrition_program', nutrition_id=40) }}"><u>Basic nutrition program</u></a><br/>
+                        <a href="{{ url_for('sport_program', sport_id=1) }}"><u>Basic sports program</u></a><br/>
                     </div>
                 </div>
                 <div class="col-md-8">
